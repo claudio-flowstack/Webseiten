@@ -148,7 +148,7 @@ export function TermNav() {
           </a>
         ))}
         <Link
-          to="/demo/bewerbung"
+          to="/demo-bewerbung"
           style={{
             ...linkStyle,
             color: terminal.bg,
@@ -167,6 +167,12 @@ export function TermNav() {
 }
 
 export function TermFooter() {
+  const linkStyle: CSSProperties = {
+    color: terminal.dim,
+    textDecoration: 'none',
+    transition: 'color 0.2s',
+  }
+
   return (
     <div
       style={{
@@ -181,9 +187,8 @@ export function TermFooter() {
     >
       <div>© 2026 Novacode GmbH · Oranienburger Str. 66, Berlin · careers@novacode.de</div>
       <div style={{ display: 'flex', gap: 24 }}>
-        <span>Impressum</span>
-        <span>Datenschutz</span>
-        <span>Engineering Blog ↗</span>
+        <Link to="/demo-impressum" style={linkStyle}>Impressum</Link>
+        <Link to="/demo-datenschutz" style={linkStyle}>Datenschutz</Link>
       </div>
     </div>
   )

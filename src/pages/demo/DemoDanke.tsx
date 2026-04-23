@@ -32,7 +32,7 @@ export function DemoDanke() {
   useSeo({
     title: 'Danke · Novacode Demo · Flowstack',
     description: 'Dark-Terminal Bestätigungsseite Demo.',
-    path: '/demo/danke',
+    path: '/demo-danke',
     noindex: true,
   })
 

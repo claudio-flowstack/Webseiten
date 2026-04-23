@@ -136,7 +136,7 @@ function Hero() {
 
         <div style={{ display: 'flex', gap: 14, marginTop: 40, alignItems: 'center' }}>
           <Link
-            to="/demo/bewerbung"
+            to="/demo-bewerbung"
             style={{
               background: terminal.accent,
               color: terminal.bg,
@@ -276,7 +276,7 @@ function Roles() {
             <div style={{ fontFamily: terminal.mono, fontSize: 13, color: terminal.dim }}>{r.stack}</div>
             <div style={{ fontFamily: terminal.mono, fontSize: 13, color: terminal.text }}>{r.comp}</div>
             <Link
-              to="/demo/bewerbung"
+              to="/demo-bewerbung"
               style={{
                 fontFamily: terminal.sans,
                 fontSize: 13,
@@ -416,7 +416,7 @@ function FinalCta() {
       </p>
       <div style={{ display: 'flex', gap: 14, marginTop: 44, justifyContent: 'center' }}>
         <Link
-          to="/demo/bewerbung"
+          to="/demo-bewerbung"
           style={{
             background: terminal.accent,
             color: terminal.bg,

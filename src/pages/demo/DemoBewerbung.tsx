@@ -84,7 +84,7 @@ export function DemoBewerbung() {
   useSeo({
     title: 'Bewerbung · Novacode Demo · Flowstack',
     description: 'Dark-Terminal Bewerbungsformular Demo.',
-    path: '/demo/bewerbung',
+    path: '/demo-bewerbung',
     noindex: true,
   })
 
@@ -92,7 +92,7 @@ export function DemoBewerbung() {
     if (step < 3) {
       setStep(step + 1)
     } else {
-      navigate('/demo/danke')
+      navigate('/demo-danke')
     }
   }
 

@@ -27,6 +27,8 @@ const Agb = lazy(() => import('@/pages/legal/Agb').then(m => ({ default: m.Agb }
 const DemoLanding = lazy(() => import('@/pages/demo/DemoLanding').then(m => ({ default: m.DemoLanding })))
 const DemoBewerbung = lazy(() => import('@/pages/demo/DemoBewerbung').then(m => ({ default: m.DemoBewerbung })))
 const DemoDanke = lazy(() => import('@/pages/demo/DemoDanke').then(m => ({ default: m.DemoDanke })))
+const DemoImpressum = lazy(() => import('@/pages/demo/DemoImpressum').then(m => ({ default: m.DemoImpressum })))
+const DemoDatenschutz = lazy(() => import('@/pages/demo/DemoDatenschutz').then(m => ({ default: m.DemoDatenschutz })))
 
 
 export function App() {
@@ -52,8 +54,10 @@ export function App() {
 
           {/* Demo · Novacode Dark Terminal */}
           <Route path="/demo" element={<DemoLanding />} />
-          <Route path="/demo/bewerbung" element={<DemoBewerbung />} />
-          <Route path="/demo/danke" element={<DemoDanke />} />
+          <Route path="/demo-bewerbung" element={<DemoBewerbung />} />
+          <Route path="/demo-danke" element={<DemoDanke />} />
+          <Route path="/demo-impressum" element={<DemoImpressum />} />
+          <Route path="/demo-datenschutz" element={<DemoDatenschutz />} />
 
           {/* Legal */}
           <Route path="/impressum" element={<Impressum />} />
