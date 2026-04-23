@@ -1,4 +1,18 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://flowstack-systems.de/sitemap.xml
+# VSL-Funnel (nicht indexieren, nur über Ads erreichbar)
+Disallow: /kostenloses-videotraining
+Disallow: /videotraining
+Disallow: /private-bewerbung
+Disallow: /termin
+Disallow: /danke
+Disallow: /danke-bewerbung
+
+# Demo-Recruiting-Seiten (nicht indexieren)
+Disallow: /demo/
+
+# Legal-Pflichtseiten (erreichbar, aber keine Priorität)
+Disallow: /agb
+
+Sitemap: https://flowstack-system.de/sitemap.xml

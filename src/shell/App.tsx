@@ -1,29 +1,67 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
-import HomePage from '@/pages/HomePage'
+import CookieBanner from '@/components/shared/CookieBanner'
+import { RouteTracker } from '@/shared/tracking/RouteTracker'
 
-const HomePagePlatform = lazy(() => import('@/pages/HomePagePlatform').then(m => ({ default: m.HomePage })))
-const VslOptInPage = lazy(() => import('@/pages/funnel/VslOptInPage').then(m => ({ default: m.VslOptInPage })))
-const VslTrainingPage = lazy(() => import('@/pages/funnel/VslTrainingPage').then(m => ({ default: m.VslTrainingPage })))
-const VslQualifyPage = lazy(() => import('@/pages/funnel/VslQualifyPage').then(m => ({ default: m.VslQualifyPage })))
-const VslBookingPage = lazy(() => import('@/pages/funnel/VslBookingPage').then(m => ({ default: m.VslBookingPage })))
-const VslDankePage = lazy(() => import('@/pages/funnel/VslDankePage').then(m => ({ default: m.VslDankePage })))
+// Homepage-Funnel
+const HomePage = lazy(() => import('@/pages/homepage-funnel/HomePage').then(m => ({ default: m.HomePage })))
+const Bewerbung = lazy(() => import('@/pages/homepage-funnel/Bewerbung').then(m => ({ default: m.Bewerbung })))
+const DankeBewerbung = lazy(() => import('@/pages/homepage-funnel/DankeBewerbung').then(m => ({ default: m.DankeBewerbung })))
+
+// Fulfillment-Funnel
+const FulfillmentAutomation = lazy(() => import('@/pages/fulfillment-automation/FulfillmentAutomation').then(m => ({ default: m.FulfillmentAutomation })))
+
+// VSL-Funnel
+const OptIn = lazy(() => import('@/pages/vsl-funnel/OptIn').then(m => ({ default: m.OptIn })))
+const Training = lazy(() => import('@/pages/vsl-funnel/Training').then(m => ({ default: m.Training })))
+const Qualify = lazy(() => import('@/pages/vsl-funnel/Qualify').then(m => ({ default: m.Qualify })))
+const Booking = lazy(() => import('@/pages/vsl-funnel/Booking').then(m => ({ default: m.Booking })))
+const Danke = lazy(() => import('@/pages/vsl-funnel/Danke').then(m => ({ default: m.Danke })))
+
+// Legal
+const Impressum = lazy(() => import('@/pages/legal/Impressum').then(m => ({ default: m.Impressum })))
+const Datenschutz = lazy(() => import('@/pages/legal/Datenschutz').then(m => ({ default: m.Datenschutz })))
+const Agb = lazy(() => import('@/pages/legal/Agb').then(m => ({ default: m.Agb })))
+
+// Demo · Novacode Dark Terminal
+const DemoLanding = lazy(() => import('@/pages/demo/DemoLanding').then(m => ({ default: m.DemoLanding })))
+const DemoBewerbung = lazy(() => import('@/pages/demo/DemoBewerbung').then(m => ({ default: m.DemoBewerbung })))
+const DemoDanke = lazy(() => import('@/pages/demo/DemoDanke').then(m => ({ default: m.DemoDanke })))
 
 
 export function App() {
   return (
     <BrowserRouter>
+      <RouteTracker />
       <Suspense fallback={<div className="min-h-screen bg-[#0a0a0e]" />}>
         <Routes>
-          <Route path="/alt-hp" element={<HomePage />} />
-          <Route path="/test" element={<HomePagePlatform />} />
-          <Route path="/kostenloses-videotraining" element={<VslOptInPage />} />
-          <Route path="/videotraining" element={<VslTrainingPage />} />
-          <Route path="/private-bewerbung" element={<VslQualifyPage />} />
-          <Route path="/termin" element={<VslBookingPage />} />
-          <Route path="/danke" element={<VslDankePage />} />
+          {/* Homepage-Funnel */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/bewerbung" element={<Bewerbung />} />
+          <Route path="/danke-bewerbung" element={<DankeBewerbung />} />
+
+          {/* Fulfillment */}
+          <Route path="/fulfillment-automation" element={<FulfillmentAutomation />} />
+
+          {/* VSL-Funnel */}
+          <Route path="/kostenloses-videotraining" element={<OptIn />} />
+          <Route path="/videotraining" element={<Training />} />
+          <Route path="/private-bewerbung" element={<Qualify />} />
+          <Route path="/termin" element={<Booking />} />
+          <Route path="/danke" element={<Danke />} />
+
+          {/* Demo · Novacode Dark Terminal */}
+          <Route path="/demo" element={<DemoLanding />} />
+          <Route path="/demo/bewerbung" element={<DemoBewerbung />} />
+          <Route path="/demo/danke" element={<DemoDanke />} />
+
+          {/* Legal */}
+          <Route path="/impressum" element={<Impressum />} />
+          <Route path="/datenschutz" element={<Datenschutz />} />
+          <Route path="/agb" element={<Agb />} />
         </Routes>
       </Suspense>
+      <CookieBanner />
     </BrowserRouter>
   )
 }

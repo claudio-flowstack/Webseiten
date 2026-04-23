@@ -25,3 +25,10 @@ dist-ssr
 .vercel
 .env
 .env*.local
+
+# Doppler encrypted fallback — never commit
+doppler.json
+
+# TypeScript incremental build info
+tsconfig.tsbuildinfo
+tsconfig.node.tsbuildinfo

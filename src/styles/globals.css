@@ -159,6 +159,14 @@ body {
   background: #3f3f46;
 }
 
+/* ── Library Component Animations ── */
+@keyframes border-beam {
+  100% { offset-distance: 100%; }
+}
+.animate-border-beam {
+  animation: border-beam calc(var(--duration)*1s) infinite linear;
+}
+
 /* ── Animations ── */
 @keyframes fade-in {
   from { opacity: 0; }
