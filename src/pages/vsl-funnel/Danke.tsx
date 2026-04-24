@@ -1,7 +1,14 @@
 import { useLayoutEffect, useState } from 'react';
 import { Play, CheckCircle2, Instagram, ExternalLink } from 'lucide-react';
+import { useSeo } from '@/shared/seo/useSeo';
 
 export function Danke() {
+  useSeo({
+    title: 'Danke · Flowstack System',
+    description: 'Bestätigung deiner Terminbuchung.',
+    path: '/danke',
+    noindex: true,
+  });
   const [videoPlaying, setVideoPlaying] = useState(false);
 
   useLayoutEffect(() => {

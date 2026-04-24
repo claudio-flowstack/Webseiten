@@ -5,8 +5,8 @@ import {
   TPlaceholder,
   TermFooter,
   TermNav,
-  terminal,
 } from './DemoTerminalShared'
+import { terminal } from './DemoTerminalTheme'
 
 type Role = {
   t: string

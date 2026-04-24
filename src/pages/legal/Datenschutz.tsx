@@ -1,7 +1,15 @@
 import { useLayoutEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
+import { useSeo } from '@/shared/seo/useSeo';
 
 export function Datenschutz() {
+  useSeo({
+    title: 'Datenschutzerklärung · Flowstack System',
+    description: 'Informationen zur Verarbeitung personenbezogener Daten bei Flowstack System nach DSGVO.',
+    path: '/datenschutz',
+    noindex: true,
+  });
+
   useLayoutEffect(() => {
     document.body.style.backgroundColor = '#111415';
     document.body.style.color = '#f6f6f7';

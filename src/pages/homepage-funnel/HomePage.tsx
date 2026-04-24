@@ -455,6 +455,15 @@ type TaskKey = 'reporting' | 'content' | 'leads' | 'onboarding' | 'scheduling' |
 type TaskState = Record<TaskKey, boolean>
 type TaskDef = { label: string; hpw: number }
 
+const TASK_DEFS: Record<TaskKey, TaskDef> = {
+  reporting: { label: 'Client Reporting', hpw: 3.2 },
+  content: { label: 'Content-Produktion', hpw: 4.5 },
+  leads: { label: 'Lead-Qualifizierung', hpw: 2.8 },
+  onboarding: { label: 'Client-Onboarding', hpw: 1.5 },
+  scheduling: { label: 'Meetings & Scheduling', hpw: 1.2 },
+  invoicing: { label: 'Rechnung & Timesheets', hpw: 1.4 },
+}
+
 function Calculator() {
   const [team, setTeam] = useState(8)
   const [rate, setRate] = useState(65)
@@ -467,18 +476,9 @@ function Calculator() {
     invoicing: false,
   })
 
-  const taskDefs: Record<TaskKey, TaskDef> = {
-    reporting: { label: 'Client Reporting', hpw: 3.2 },
-    content: { label: 'Content-Produktion', hpw: 4.5 },
-    leads: { label: 'Lead-Qualifizierung', hpw: 2.8 },
-    onboarding: { label: 'Client-Onboarding', hpw: 1.5 },
-    scheduling: { label: 'Meetings & Scheduling', hpw: 1.2 },
-    invoicing: { label: 'Rechnung & Timesheets', hpw: 1.4 },
-  }
-
   const calc = useMemo(() => {
     const activeKeys = (Object.keys(tasks) as TaskKey[]).filter(k => tasks[k])
-    const hpwPerEmployee = activeKeys.reduce((sum, k) => sum + taskDefs[k].hpw, 0)
+    const hpwPerEmployee = activeKeys.reduce((sum, k) => sum + TASK_DEFS[k].hpw, 0)
     const efficiency = 0.7
     const weeklyHours = hpwPerEmployee * team * efficiency
     const monthlyHours = weeklyHours * 4.33
@@ -487,8 +487,8 @@ function Calculator() {
 
     const breakdown = activeKeys.map(k => ({
       key: k,
-      label: taskDefs[k].label,
-      hours: Math.round(taskDefs[k].hpw * team * efficiency * 4.33),
+      label: TASK_DEFS[k].label,
+      hours: Math.round(TASK_DEFS[k].hpw * team * efficiency * 4.33),
     }))
     const maxBar = Math.max(1, ...breakdown.map(b => b.hours))
 
@@ -542,7 +542,7 @@ function Calculator() {
                 <span className="field-val">{activeCount} ausgewählt</span>
               </div>
               <div className="tasks">
-                {(Object.keys(taskDefs) as TaskKey[]).map(k => (
+                {(Object.keys(TASK_DEFS) as TaskKey[]).map(k => (
                   <label className={`task ${tasks[k] ? 'on' : ''}`} key={k}>
                     <input
                       type="checkbox"
@@ -551,7 +551,7 @@ function Calculator() {
                       style={{ display: 'none' }}
                     />
                     <span className="task-check">{tasks[k] && <Check size={11} />}</span>
-                    {taskDefs[k].label}
+                    {TASK_DEFS[k].label}
                   </label>
                 ))}
               </div>
@@ -648,7 +648,9 @@ function Team() {
         </h2>
         <div className="team-wrap">
           <div>
-            <div className="team-portrait">[ Portrait · Claudio Di Franco ]</div>
+            <div className="team-portrait">
+              <img src="/claudio.jpg" alt="Claudio Di Franco — Gründer Flowstack" loading="lazy" decoding="async" />
+            </div>
           </div>
           <div>
             <div className="team-role">Gründer · Flowstack System</div>
@@ -834,6 +836,29 @@ function Footer() {
   )
 }
 
+const ORGANIZATION_JSONLD = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Flowstack System',
+  legalName: 'Flowstack System GmbH',
+  url: 'https://www.flowstack-agentur.de',
+  logo: 'https://www.flowstack-agentur.de/favicon.svg',
+  description:
+    'KI-Automatisierung für Marketing-, Recruiting- und Coaching-Agenturen. Maßgeschneiderte Workflows für Reporting, Content-Produktion und Lead-Qualifizierung.',
+  founder: {
+    '@type': 'Person',
+    name: 'Claudio Di Franco',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'München',
+    addressCountry: 'DE',
+  },
+  sameAs: [
+    'https://www.linkedin.com/in/claudiodifranco',
+  ],
+}
+
 export function HomePage() {
   useSeo({
     title: 'Flowstack System · KI-Automatisierung für Agenturen',
@@ -841,6 +866,17 @@ export function HomePage() {
       'Flowstack baut maßgeschneiderte KI-Workflows für Marketing-Agenturen. Reporting, Content-Produktion, Lead-Qualifizierung — automatisiert in 30 Tagen.',
     path: '/',
   })
+
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.id = 'jsonld-org-flowstack'
+    script.textContent = JSON.stringify(ORGANIZATION_JSONLD)
+    document.head.appendChild(script)
+    return () => {
+      document.getElementById('jsonld-org-flowstack')?.remove()
+    }
+  }, [])
 
   return (
     <div className="marketing-root">

@@ -1,5 +1,6 @@
 import { useSeo } from '@/shared/seo/useSeo'
-import { DemoTerminalShell, TPlaceholder, TermFooter, TermNav, terminal } from './DemoTerminalShared'
+import { DemoTerminalShell, TPlaceholder, TermFooter, TermNav } from './DemoTerminalShared'
+import { terminal } from './DemoTerminalTheme'
 
 type TimelineItem = {
   t: string

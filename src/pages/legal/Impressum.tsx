@@ -1,7 +1,15 @@
 import { useLayoutEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
+import { useSeo } from '@/shared/seo/useSeo';
 
 export function Impressum() {
+  useSeo({
+    title: 'Impressum · Flowstack System',
+    description: 'Impressum und rechtliche Angaben von Flowstack System nach §5 TMG.',
+    path: '/impressum',
+    noindex: true,
+  });
+
   useLayoutEffect(() => {
     document.body.style.backgroundColor = '#111415';
     document.body.style.color = '#f6f6f7';

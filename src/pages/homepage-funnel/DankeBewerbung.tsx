@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useSeo } from '@/shared/seo/useSeo'
 import '@/styles/marketing-flowstack.css'
 
@@ -28,7 +28,18 @@ const FAQ_ITEMS: FaqItem[] = [
 
 export function DankeBewerbung() {
   const [openFaq, setOpenFaq] = useState<number>(0)
-  const [firstName, setFirstName] = useState<string>('')
+  const [firstName] = useState<string>(() => {
+    try {
+      const raw = typeof window === 'undefined' ? null : sessionStorage.getItem('flowstack-submitted')
+      if (raw) {
+        const d = JSON.parse(raw) as { firstName?: string }
+        if (d.firstName) return d.firstName.replace(/[<>]/g, '')
+      }
+    } catch {
+      // sessionStorage unavailable or invalid JSON — fall through to empty string
+    }
+    return ''
+  })
 
   useSeo({
     title: 'Danke · Flowstack System',
@@ -37,18 +48,6 @@ export function DankeBewerbung() {
     path: '/danke-bewerbung',
     noindex: true,
   })
-
-  useEffect(() => {
-    try {
-      const raw = sessionStorage.getItem('flowstack-submitted')
-      if (raw) {
-        const d = JSON.parse(raw) as { firstName?: string }
-        if (d.firstName) setFirstName(d.firstName.replace(/[<>]/g, ''))
-      }
-    } catch {
-      /* noop */
-    }
-  }, [])
 
   return (
     <div className="marketing-root">

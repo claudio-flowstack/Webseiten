@@ -2,6 +2,21 @@ import { useState, useEffect, useRef, type CSSProperties } from 'react'
 import { useSeo } from '@/shared/seo/useSeo'
 import '@/styles/marketing-fulfillment.css'
 
+type NodeProps = { x: number; y: number; w?: number; h?: number; label: string; sub?: string; active: number; tier?: string }
+const Node = ({ x, y, w = 160, h = 44, label, sub, active, tier }: NodeProps) => (
+  <g transform={`translate(${x}, ${y})`} style={{ opacity: 0.3 + active * 0.7, transition: 'opacity .2s' }}>
+    <rect x={0} y={0} width={w} height={h} rx={8}
+      fill="#121826"
+      stroke={active > 0.3 ? '#6E8BFF' : '#2A3246'}
+      strokeWidth={active > 0.3 ? 1.5 : 1}
+      style={{ filter: active > 0.5 ? 'drop-shadow(0 0 12px rgba(110,139,255,0.5))' : 'none', transition: 'all .3s' }}
+    />
+    <text x={12} y={18} fontSize="11" fill="#626874" fontFamily="'JetBrains Mono', monospace" letterSpacing="0.05em">{tier || ''}</text>
+    <text x={12} y={33} fontSize="13" fill={active > 0.3 ? '#E6E8EB' : '#9BA1AC'} fontFamily="Inter" fontWeight="500">{label}</text>
+    {sub && <text x={w - 12} y={33} fontSize="10.5" fill="#626874" fontFamily="'JetBrains Mono', monospace" textAnchor="end">{sub}</text>}
+  </g>
+)
+
 type IconProps = { size?: number }
 function ZMArrow({ size = 14 }: IconProps) {
   return (
@@ -111,7 +126,7 @@ function Hero() {
             </div>
           </div>
           <div className="hero-v3-founder">
-            <div className="hero-v3-founder-av">CD</div>
+            <img className="hero-v3-founder-av" src="/claudio.jpg" alt="Claudio Di Franco" loading="lazy" decoding="async" />
             <div>
               <div className="hero-v3-founder-n">Claudio Di Franco</div>
               <div className="hero-v3-founder-r">Gründer · Flowstack System</div>
@@ -240,14 +255,15 @@ function Audience() {
 function Pipeline() {
   const [t, setT] = useState(0)
   const [playing, setPlaying] = useState(true)
-  const startRef = useRef<number>(Date.now())
+  const startRef = useRef<number | null>(null)
   const CYCLE = 8000
 
   useEffect(() => {
     if (!playing) return
+    if (startRef.current === null) startRef.current = Date.now()
     let raf: number
     const loop = () => {
-      const elapsed = (Date.now() - startRef.current) % CYCLE
+      const elapsed = (Date.now() - (startRef.current ?? Date.now())) % CYCLE
       setT(elapsed / CYCLE)
       raf = requestAnimationFrame(loop)
     }
@@ -293,20 +309,6 @@ function Pipeline() {
 
   const W = 1200, H = 560
 
-  type NodeProps = { x: number; y: number; w?: number; h?: number; label: string; sub?: string; active: number; tier?: string }
-  const Node = ({ x, y, w = 160, h = 44, label, sub, active, tier }: NodeProps) => (
-    <g transform={`translate(${x}, ${y})`} style={{ opacity: 0.3 + active * 0.7, transition: 'opacity .2s' }}>
-      <rect x={0} y={0} width={w} height={h} rx={8}
-        fill="#121826"
-        stroke={active > 0.3 ? '#6E8BFF' : '#2A3246'}
-        strokeWidth={active > 0.3 ? 1.5 : 1}
-        style={{ filter: active > 0.5 ? 'drop-shadow(0 0 12px rgba(110,139,255,0.5))' : 'none', transition: 'all .3s' }}
-      />
-      <text x={12} y={18} fontSize="11" fill="#626874" fontFamily="'JetBrains Mono', monospace" letterSpacing="0.05em">{tier || ''}</text>
-      <text x={12} y={33} fontSize="13" fill={active > 0.3 ? '#E6E8EB' : '#9BA1AC'} fontFamily="Inter" fontWeight="500">{label}</text>
-      {sub && <text x={w - 12} y={33} fontSize="10.5" fill="#626874" fontFamily="'JetBrains Mono', monospace" textAnchor="end">{sub}</text>}
-    </g>
-  )
 
   const particleAt = (pts: number[][], p: number) => {
     const lens: number[] = []
@@ -664,48 +666,48 @@ function ROICalc() {
 function Cases() {
   const items = [
     {
-      av: 'LW', n: 'Leonie Weber', m: '34 · Social-Media-Agentur · Berlin',
-      tag: 'FULFILLMENT · CREATIVE AUTOMATION',
-      headline: 'Von 11 % auf 38 % EBIT in 11 Monaten — ohne neuen Hire.',
-      q: 'Wir haben den Sprung geschafft, von dem alle nur reden. Marge verdreifacht, Team glücklicher.',
+      av: 'MJ', img: '/marc.webp', n: 'Marc Januschke', m: 'Co-Founder · ajXmarketing GmbH · MehrPremiumKunden.de',
+      tag: 'FULFILLMENT · B2B-LEADGEN AUTOMATION',
+      headline: 'LinkedIn-Akquise auf Autopilot — Response-Rate verdoppelt, ohne Sales-Hire.',
+      q: 'Die Maschine schreibt Outreach, der wirklich nach mir klingt. Das Team fokussiert sich auf Abschlüsse statt auf Tippen, und unsere Pipeline ist so voll wie noch nie.',
       problem: [
-        'Team verbrannte 60 % der Woche in Creative-Produktion',
-        'Marge bei 11 %, jeder neue Kunde drückte sie weiter',
-        'Sonntagabend-Panik vor dem Montag-Posting-Kalender',
+        'Team schrieb LinkedIn-Outreach noch händisch, 20h+ pro Woche',
+        'Response-Rates stagnierten, Personalisierung kostete Zeit',
+        'Skalierung bedeutete neuen Vertriebs-Hire — und neue Fixkosten',
       ],
       umgesetzt: [
-        'G4U-Creative-Engine mit 5 Personas in ihrer Tone-of-Voice',
-        'Auto-Approval-Flow mit Slack-Review statt Asana-Chaos',
-        'Weekly Looker-Reporting pro Endkunde, KI-kommentiert',
+        'KI-Outbound-Engine mit Marcs Tonalität, hyperpersonalisiert pro Lead',
+        'Automatische Lead-Anreicherung & Scoring per LinkedIn-/Web-Signals',
+        'Meeting-Booking-Flow mit Follow-up-Sequenzen ohne manuelles Tracking',
       ],
       ziel: [
-        'EBIT von 11 % auf 30+ % in 12 Monaten',
-        'Team von 8 auf 4 Personen, alle in Supervision',
-        'Creative-Output verdreifacht',
+        'Response-Rate verdoppeln ohne Qualitätsverlust',
+        'Vertriebsstunden halbieren, Fokus auf Closing',
+        'Skalierbare Pipeline ohne neuen Hire',
       ],
-      ba: [{ l: 'EBIT-Marge', b: '11 %', a: '38 %' }, { l: 'Creatives/Monat', b: '48', a: '210' }, { l: 'Teamgröße', b: '8', a: '4' }],
+      ba: [{ l: 'Response-Rate', b: '3,4 %', a: '7,1 %' }, { l: 'Outreach-Stunden/W', b: '22h', a: '4h' }, { l: 'Termine/Monat', b: '18', a: '46' }],
     },
     {
-      av: 'MO', n: 'Marek Ortiz', m: '41 · Performance-Agentur · Hamburg',
-      tag: 'FULFILLMENT · AD-OPS AUTOMATION',
-      headline: 'Solo 42k €/Monat → 61k €/Monat. Keine Einstellung nötig.',
-      q: 'Ich war knapp davor, zwei Leute einzustellen. Stattdessen haben wir das System gebaut — heute fahre ich 40 % mehr Umsatz. Alleine.',
+      av: 'KS', n: 'Kerem Süslü', m: 'Gründer · CubeFilm · Leverkusen',
+      tag: 'FULFILLMENT · VIDEO-PRODUCTION AUTOMATION',
+      headline: 'Erklärvideo-Produktion von 3 Wochen auf 4 Tage — bei gleichbleibender Qualität.',
+      q: 'Skript, Storyboard und Voiceover-Drafts entstehen jetzt in Stunden statt Tagen. Wir können doppelt so viele Projekte stemmen, ohne das Team zu vergrößern.',
       problem: [
-        'Alleine, aber schon 14 Kunden — jede Anfrage mehr war Last',
-        'Ad-Launches und Reporting fraßen 30h/Woche',
-        'Neueinstellung hätte Marge vernichtet',
+        'Skript und Storyboard-Konzepte fraßen pro Projekt mehrere Tage',
+        'Jeder neue Kunde = kompletter manueller Kickoff-Marathon',
+        'Skalierung scheiterte am Creative-Bottleneck, nicht an Demand',
       ],
       umgesetzt: [
-        'Automatisierter Ad-Launch-Flow: Brief → 12 Varianten in 10 Min',
-        'Kunden-Dashboard mit Live-Daten statt wöchentlichem Report',
-        'KI-Follow-up-Sequenzen pro Endkunden-Kampagne',
+        'KI-Skript-Generator in CubeFilm-Tonalität, direkt aus Briefing',
+        'Automatisierte Storyboard-Vorschläge + Voiceover-Drafts per API',
+        'Kunden-Feedback-Loop mit automatischer Revisions-Pipeline',
       ],
       ziel: [
-        'Umsatz steigern ohne einzustellen',
-        'Operative Stunden < 20h/Woche',
-        'Margenstruktur wie 3-Personen-Team',
+        'Produktionszeit pro Projekt drittel',
+        'Parallele Kundenzahl verdoppeln',
+        'Team-Fokus auf Kreativ-Direktion statt Fleißarbeit',
       ],
-      ba: [{ l: 'Monatsumsatz', b: '42k €', a: '61k €' }, { l: 'Arbeitszeit/W', b: '52h', a: '18h' }, { l: 'Endkunden', b: '14', a: '22' }],
+      ba: [{ l: 'Projekt-Durchlauf', b: '21 T', a: '4 T' }, { l: 'Skript-Erstellung', b: '2,5 T', a: '3 h' }, { l: 'Projekte/Monat', b: '6', a: '14' }],
     },
     {
       av: 'TB', n: 'Tobias Brenner', m: '46 · B2B-Leadgen-Agentur · München',
@@ -747,7 +749,11 @@ function Cases() {
                 <div className="case-tag">{c.tag}</div>
                 <h3 className="case-headline">{c.headline}</h3>
                 <div className="case-ppl">
-                  <div className="case-av">{c.av}</div>
+                  {'img' in c && c.img ? (
+                    <img src={c.img} alt={c.n} className="case-av case-av-img" loading="lazy" decoding="async" />
+                  ) : (
+                    <div className="case-av">{c.av}</div>
+                  )}
                   <div>
                     <div className="case-n">{c.n}</div>
                     <div className="case-m">{c.m}</div>
@@ -755,7 +761,13 @@ function Cases() {
                 </div>
               </div>
               <div className="case-body">
-                <div className="case-img"><div className="case-img-tag">PORTRAIT · {c.n.split(' ')[0]}</div></div>
+                <div className="case-img">
+                  {'img' in c && c.img ? (
+                    <img src={c.img} alt={`Portrait ${c.n}`} className="case-img-photo" loading="lazy" decoding="async" />
+                  ) : (
+                    <div className="case-img-tag">PORTRAIT · {c.n.split(' ')[0]}</div>
+                  )}
+                </div>
                 <div className="case-points">
                   <div className="case-point">
                     <div className="case-point-l problem">01 · Problem</div>
@@ -830,7 +842,7 @@ function Expert() {
     <section className="section elev" id="experte">
       <div className="wrap expert">
         <div className="expert-portrait">
-          <div className="expert-portrait-inner">[ Portrait · Claudio Di Franco ]</div>
+          <img src="/claudio.jpg" alt="Claudio Di Franco — Gründer Flowstack" className="expert-portrait-img" loading="lazy" decoding="async" />
           <div className="expert-portrait-tag">GRÜNDER · FLOWSTACK</div>
         </div>
         <div className="expert-body">

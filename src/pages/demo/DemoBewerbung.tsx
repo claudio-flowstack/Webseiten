@@ -1,7 +1,8 @@
 import { useState, type CSSProperties } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSeo } from '@/shared/seo/useSeo'
-import { DemoTerminalShell, TermFooter, TermNav, terminal } from './DemoTerminalShared'
+import { DemoTerminalShell, TermFooter, TermNav } from './DemoTerminalShared'
+import { terminal } from './DemoTerminalTheme'
 
 type InputProps = {
   label: string

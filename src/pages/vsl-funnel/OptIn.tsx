@@ -1,6 +1,7 @@
 import { useLayoutEffect, useState, type FormEvent } from 'react';
 import { Check, X, User, Mail, ArrowRight, ShieldCheck, Play, Lock } from 'lucide-react';
 import { sendSmsCode, type ConfirmationResult } from '@/lib/firebase';
+import { useSeo } from '@/shared/seo/useSeo';
 
 const COUNTRY_CODES = [
   { code: '+49', country: 'DE', flag: '🇩🇪' },
@@ -17,6 +18,12 @@ const COUNTRY_CODES = [
 ];
 
 export function OptIn() {
+  useSeo({
+    title: 'Kostenloses Videotraining · Flowstack System',
+    description: 'Erfahre in 20 Minuten, wie Agenturen mit KI skalieren.',
+    path: '/kostenloses-videotraining',
+    noindex: true,
+  });
   const [showModal, setShowModal] = useState(false);
   const [vorname, setVorname] = useState('');
   const [email, setEmail] = useState('');
@@ -44,7 +51,7 @@ export function OptIn() {
   const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxAtxD5g4byY-SD5tuCV79d5k6UL9FEVVIguEiJd_AuBrhukRPCQVzvjSeMeuGGoNn1/exec';
 
   const fullPhone = () => {
-    const cleaned = telefon.replace(/[\s\-\/\(\)]/g, '');
+    const cleaned = telefon.replace(/[\s\-/()]/g, '');
     if (cleaned.startsWith('+') || cleaned.startsWith('00')) return cleaned;
     if (cleaned.startsWith('0')) return countryCode + cleaned.slice(1);
     return countryCode + cleaned;
@@ -72,7 +79,9 @@ export function OptIn() {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: 'vsl_optin', vorname, email });
       if (typeof window.umami !== 'undefined') window.umami.track('vsl_optin');
-    } catch {}
+    } catch {
+      // Lead-Backup schlug fehl (z.B. Netzwerkfehler) — SMS-Flow läuft trotzdem weiter
+    }
 
     // SMS senden
     try {

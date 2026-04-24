@@ -1,7 +1,14 @@
 import { useLayoutEffect } from 'react';
 import { Play, Pause, Volume2, Maximize, ArrowRight } from 'lucide-react';
+import { useSeo } from '@/shared/seo/useSeo';
 
 export function Training() {
+  useSeo({
+    title: 'Kostenloses Videotraining · Flowstack System',
+    description: 'Geschlossenes Videotraining für Agenturen. Nur nach Opt-in erreichbar.',
+    path: '/kostenloses-videotraining',
+    noindex: true,
+  });
   useLayoutEffect(() => {
     document.body.style.backgroundColor = '#111415';
     document.body.style.color = '#f6f6f7';

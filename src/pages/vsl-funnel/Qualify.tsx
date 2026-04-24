@@ -1,4 +1,5 @@
 import { ApplicationForm, type FormStep, type FormTheme } from '@/components/shared/ApplicationForm'
+import { useSeo } from '@/shared/seo/useSeo'
 
 const VSL_THEME: FormTheme = {
   bg: '#111415',
@@ -144,6 +145,13 @@ const STEPS: FormStep[] = [
 ]
 
 export function Qualify() {
+  useSeo({
+    title: 'Private Bewerbung · Flowstack System',
+    description: 'Geschlossener Bewerbungsprozess für das Strategiegespräch. Nur nach persönlicher Einladung.',
+    path: '/private-bewerbung',
+    noindex: true,
+  })
+
   return (
     <ApplicationForm
       steps={STEPS}

@@ -1,5 +1,6 @@
 import { useSeo } from '@/shared/seo/useSeo'
-import { DemoTerminalShell, TermFooter, TermNav, terminal } from './DemoTerminalShared'
+import { DemoTerminalShell, TermFooter, TermNav } from './DemoTerminalShared'
+import { terminal } from './DemoTerminalTheme'
 
 type Row = { label: string; value: string | string[] }
 

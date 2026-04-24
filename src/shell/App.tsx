@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
 import CookieBanner from '@/components/shared/CookieBanner'
 import { RouteTracker } from '@/shared/tracking/RouteTracker'
+import { ErrorBoundary } from '@/shared/components/ErrorBoundary'
 
 // Homepage-Funnel
 const HomePage = lazy(() => import('@/pages/homepage-funnel/HomePage').then(m => ({ default: m.HomePage })))
@@ -30,13 +31,34 @@ const DemoDanke = lazy(() => import('@/pages/demo/DemoDanke').then(m => ({ defau
 const DemoImpressum = lazy(() => import('@/pages/demo/DemoImpressum').then(m => ({ default: m.DemoImpressum })))
 const DemoDatenschutz = lazy(() => import('@/pages/demo/DemoDatenschutz').then(m => ({ default: m.DemoDatenschutz })))
 
+// 404
+const NotFound404 = lazy(() => import('@/pages/errors/NotFound404').then(m => ({ default: m.NotFound404 })))
+
 
 export function App() {
   return (
     <BrowserRouter>
       <RouteTracker />
-      <Suspense fallback={<div className="min-h-screen bg-[#0a0a0e]" />}>
-        <Routes>
+      <ErrorBoundary
+        fallback={
+          <div className="min-h-screen bg-[#0a0a0e] text-white flex items-center justify-center p-6">
+            <div className="max-w-md text-center">
+              <h1 className="text-2xl font-semibold mb-3">Etwas ist schiefgelaufen</h1>
+              <p className="text-gray-400 mb-6">
+                Die Seite konnte nicht geladen werden. Bitte lade neu oder versuch es später erneut.
+              </p>
+              <button
+                onClick={() => window.location.reload()}
+                className="rounded-lg bg-cyan-500 px-5 py-2.5 text-sm font-semibold text-black hover:bg-cyan-400 transition-colors"
+              >
+                Seite neu laden
+              </button>
+            </div>
+          </div>
+        }
+      >
+        <Suspense fallback={<div className="min-h-screen bg-[#0a0a0e]" />}>
+          <Routes>
           {/* Homepage-Funnel */}
           <Route path="/" element={<HomePage />} />
           <Route path="/bewerbung" element={<Bewerbung />} />
@@ -63,8 +85,12 @@ export function App() {
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
           <Route path="/agb" element={<Agb />} />
-        </Routes>
-      </Suspense>
+
+          {/* 404 catch-all */}
+          <Route path="*" element={<NotFound404 />} />
+          </Routes>
+        </Suspense>
+      </ErrorBoundary>
       <CookieBanner />
     </BrowserRouter>
   )

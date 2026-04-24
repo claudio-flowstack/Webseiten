@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const PROD_ORIGIN = 'https://flowstack-system.de'
+const PROD_ORIGIN = 'https://www.flowstack-agentur.de'
 
 export type SeoConfig = {
   title: string
@@ -54,7 +54,7 @@ export function useSeo(config: SeoConfig): void {
         ? window.location.origin
         : PROD_ORIGIN
     const url = `${origin}${path}`
-    const ogImage = image ? `${origin}${image}` : `${origin}/og-default.png`
+    const ogImage = image ? `${origin}${image}` : `${origin}/claudio-hero.jpg`
 
     const prevTitle = document.title
     document.title = title

@@ -15,4 +15,4 @@ Disallow: /demo/
 # Legal-Pflichtseiten (erreichbar, aber keine Priorität)
 Disallow: /agb
 
-Sitemap: https://flowstack-system.de/sitemap.xml
+Sitemap: https://www.flowstack-agentur.de/sitemap.xml

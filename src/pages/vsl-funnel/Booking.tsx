@@ -12,6 +12,7 @@ import {
   ArrowLeft,
   Loader2,
 } from 'lucide-react';
+import { useSeo } from '@/shared/seo/useSeo';
 
 const WEBHOOK_URL =
   'https://script.google.com/macros/s/AKfycbxAtxD5g4byY-SD5tuCV79d5k6UL9FEVVIguEiJd_AuBrhukRPCQVzvjSeMeuGGoNn1/exec';
@@ -81,6 +82,12 @@ function getAvailableSlots(dateStr: string, busySlots: BusySlot[]): string[] {
 }
 
 export function Booking() {
+  useSeo({
+    title: 'Termin sichern · Flowstack System',
+    description: 'Buche dein kostenloses Strategiegespräch mit Claudio.',
+    path: '/termin',
+    noindex: true,
+  });
   const now = new Date();
   const [viewYear, setViewYear] = useState(now.getFullYear());
   const [viewMonth, setViewMonth] = useState(now.getMonth());

@@ -1,7 +1,8 @@
 /**
  * Tracking primitives for Flowstack SPA.
- * Global Umami + GTM + Meta Pixel are bootstrapped in index.html.
- * These helpers push to dataLayer / fbq / umami at runtime from React.
+ * Umami runs cookielessly on every page (legitimate interest).
+ * GTM is loaded by index.html but respects Consent Mode v2 (configured in dataLayer).
+ * Meta Pixel script + init are deferred until marketing consent is granted (see CookieBanner).
  */
 
 const isBrowser = typeof window !== 'undefined'
@@ -13,6 +14,18 @@ const isLocalhost =
 
 export type TrackingEventPayload = Record<string, unknown>
 
+function hasMarketingConsent(): boolean {
+  if (!isBrowser) return false
+  try {
+    const raw = localStorage.getItem('cookieConsent')
+    if (!raw) return false
+    const parsed = JSON.parse(raw) as { settings?: { marketing?: boolean } } | null
+    return parsed?.settings?.marketing === true
+  } catch {
+    return false
+  }
+}
+
 function gtmPush(payload: TrackingEventPayload): void {
   if (!isBrowser) return
   window.dataLayer = window.dataLayer || []
@@ -21,6 +34,7 @@ function gtmPush(payload: TrackingEventPayload): void {
 
 function metaPixelTrack(event: string, payload?: TrackingEventPayload): void {
   if (!isBrowser || typeof window.fbq !== 'function') return
+  if (!hasMarketingConsent()) return
   if (payload) window.fbq('track', event, payload)
   else window.fbq('track', event)
 }
@@ -36,7 +50,7 @@ function umamiTrack(event: string, payload?: TrackingEventPayload): void {
 
 export function trackPageView(path: string, title: string): void {
   if (isLocalhost) {
-    console.info('[tracking:dev] page_view', { path, title })
+    console.warn('[tracking:dev] page_view', { path, title })
     return
   }
   gtmPush({
@@ -53,7 +67,7 @@ export function trackEvent(
   payload?: TrackingEventPayload,
 ): void {
   if (isLocalhost) {
-    console.info('[tracking:dev] event', eventName, payload)
+    console.warn('[tracking:dev] event', eventName, payload)
     return
   }
   gtmPush({ event: eventName, ...(payload ?? {}) })
@@ -62,7 +76,7 @@ export function trackEvent(
 
 export function trackLeadSubmit(payload?: TrackingEventPayload): void {
   if (isLocalhost) {
-    console.info('[tracking:dev] Lead', payload)
+    console.warn('[tracking:dev] Lead', payload)
     return
   }
   gtmPush({ event: 'application_submit', ...(payload ?? {}) })

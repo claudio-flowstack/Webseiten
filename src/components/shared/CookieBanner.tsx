@@ -64,8 +64,84 @@ function resolveTheme(pathname: string): BannerTheme {
   return FLOWSTACK_THEME;
 }
 
-// Push consent update to GTM dataLayer
-const updateConsent = (settings: CookieSettings) => {
+const CONSENT_STORAGE_KEY = 'cookieConsent';
+const CONSENT_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+const META_PIXEL_ID = '1496553014661154';
+
+interface StoredConsent {
+  settings: CookieSettings;
+  timestamp: number;
+}
+
+const readStoredConsent = (): StoredConsent | null => {
+  try {
+    const raw = localStorage.getItem(CONSENT_STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as Partial<StoredConsent> | null;
+    if (!parsed || typeof parsed.timestamp !== 'number' || !parsed.settings) return null;
+    if (Date.now() - parsed.timestamp > CONSENT_TTL_MS) return null;
+    return parsed as StoredConsent;
+  } catch {
+    return null;
+  }
+};
+
+const writeStoredConsent = (settings: CookieSettings) => {
+  try {
+    const payload: StoredConsent = { settings, timestamp: Date.now() };
+    localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(payload));
+  } catch {
+    // localStorage unavailable (private mode, quota exceeded) — consent applies to current session only
+  }
+};
+
+type FbqFn = ((...args: unknown[]) => void) & {
+  callMethod?: (...args: unknown[]) => void;
+  queue: unknown[];
+  push: FbqFn;
+  loaded: boolean;
+  version: string;
+};
+
+// Meta Pixel: fbevents.js + fbq-Shim werden erst nach Marketing-Consent geladen (DSGVO).
+// Module-scoped flags verhindern doppelte Script-Injection/Init bei Route-Wechseln.
+let metaPixelScriptInjected = false;
+let metaPixelInitialized = false;
+
+const loadMetaPixelScript = () => {
+  if (metaPixelScriptInjected) return;
+  metaPixelScriptInjected = true;
+
+  // fbq shim (identisch zum Facebook Pixel Bootstrap, aber erst jetzt)
+  const w = window as Window & { fbq?: FbqFn; _fbq?: FbqFn };
+  if (!w.fbq) {
+    const n = function (...args: unknown[]) {
+      if (n.callMethod) n.callMethod(...args);
+      else n.queue.push(args);
+    } as FbqFn;
+    n.push = n;
+    n.loaded = true;
+    n.version = '2.0';
+    n.queue = [];
+    w.fbq = n;
+    if (!w._fbq) w._fbq = n;
+  }
+
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = 'https://connect.facebook.net/en_US/fbevents.js';
+  document.head.appendChild(script);
+};
+
+const ensureMetaPixelInit = () => {
+  if (metaPixelInitialized) return;
+  if (!window.fbq) return;
+  window.fbq('init', META_PIXEL_ID);
+  metaPixelInitialized = true;
+};
+
+// Push consent update to GTM dataLayer and drive Meta Pixel init/grant
+const applyConsent = (settings: CookieSettings) => {
   window.dataLayer = window.dataLayer || [];
   function gtag(...args: unknown[]) {
     window.dataLayer!.push(args);
@@ -78,14 +154,14 @@ const updateConsent = (settings: CookieSettings) => {
     'analytics_storage': settings.analytics ? 'granted' : 'denied',
   });
 
-  // Meta Pixel consent
-  if (window.fbq) {
-    if (settings.marketing) {
-      window.fbq('consent', 'grant');
-      window.fbq('track', 'PageView');
-    } else {
-      window.fbq('consent', 'revoke');
-    }
+  // Meta Pixel: Script + fbq-Shim erst bei Marketing-Consent laden, dann init + track
+  if (settings.marketing) {
+    loadMetaPixelScript();
+    ensureMetaPixelInit();
+    window.fbq?.('consent', 'grant');
+    window.fbq?.('track', 'PageView');
+  } else if (window.fbq) {
+    window.fbq('consent', 'revoke');
   }
 
   // Fire custom event so GTM can react
@@ -100,18 +176,22 @@ const CookieBanner = () => {
   const location = useLocation();
   const theme = useMemo(() => resolveTheme(location.pathname), [location.pathname]);
 
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(() => readStoredConsent() === null);
   const [showSettings, setShowSettings] = useState(false);
-  const [cookieSettings, setCookieSettings] = useState<CookieSettings>({
-    notwendig: true,
-    analytics: false,
-    marketing: false,
+  const [cookieSettings, setCookieSettings] = useState<CookieSettings>(() => {
+    const stored = readStoredConsent();
+    return stored?.settings ?? {
+      notwendig: true,
+      analytics: false,
+      marketing: false,
+    };
   });
 
   useEffect(() => {
-    // TEMP: bei jedem Refresh anzeigen bis finaler Consent-Flow steht
-    localStorage.removeItem('cookieConsent');
-    setVisible(true);
+    const stored = readStoredConsent();
+    if (stored) {
+      applyConsent(stored.settings);
+    }
   }, []);
 
   useEffect(() => {
@@ -133,8 +213,8 @@ const CookieBanner = () => {
   }, []);
 
   const saveConsent = (settings: CookieSettings) => {
-    // TEMP: Persistenz deaktiviert, damit Banner bei jedem Refresh kommt
-    updateConsent(settings);
+    writeStoredConsent(settings);
+    applyConsent(settings);
     setVisible(false);
     setShowSettings(false);
   };
