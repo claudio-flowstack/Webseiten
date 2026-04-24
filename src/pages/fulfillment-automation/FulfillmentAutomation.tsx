@@ -666,26 +666,26 @@ function ROICalc() {
 function Cases() {
   const items = [
     {
-      av: 'MJ', img: '/marc.webp', n: 'Marc Januschke', m: 'Co-Founder · ajXmarketing GmbH · MehrPremiumKunden.de',
-      tag: 'FULFILLMENT · B2B-LEADGEN AUTOMATION',
-      headline: 'LinkedIn-Akquise auf Autopilot — Response-Rate verdoppelt, ohne Sales-Hire.',
-      q: 'Die Maschine schreibt Outreach, der wirklich nach mir klingt. Das Team fokussiert sich auf Abschlüsse statt auf Tippen, und unsere Pipeline ist so voll wie noch nie.',
+      av: 'LH', n: 'Lukas Hartmann', m: 'Gründer · Northpeak Performance · Köln',
+      tag: 'FULFILLMENT · AD-CREATIVE PRODUCTION',
+      headline: 'Ad-Creatives × 5 pro Woche — bei halbierten Produktionskosten.',
+      q: 'Wir liefern heute pro Kunde wöchentlich 30+ Creatives statt 6. Meta-Performance ist hoch wie nie, und das Design-Team atmet wieder.',
       problem: [
-        'Team schrieb LinkedIn-Outreach noch händisch, 20h+ pro Woche',
-        'Response-Rates stagnierten, Personalisierung kostete Zeit',
-        'Skalierung bedeutete neuen Vertriebs-Hire — und neue Fixkosten',
+        'Creative-Fatigue killte Ad-Performance nach 10–14 Tagen',
+        'Design-Team produzierte 5–8 Assets pro Kunde/Woche — zu wenig',
+        'Jeder neue Kunde verschärfte den Creative-Bottleneck',
       ],
       umgesetzt: [
-        'KI-Outbound-Engine mit Marcs Tonalität, hyperpersonalisiert pro Lead',
-        'Automatische Lead-Anreicherung & Scoring per LinkedIn-/Web-Signals',
-        'Meeting-Booking-Flow mit Follow-up-Sequenzen ohne manuelles Tracking',
+        'KI-Creative-Pipeline aus Briefing: Copy, Static, Video-Cuts in Kunden-CI',
+        'Winning-Ad-Parser zieht Top-Performer automatisch in Varianten',
+        'Review-Queue mit Human-in-the-Loop vor dem Ad-Upload',
       ],
       ziel: [
-        'Response-Rate verdoppeln ohne Qualitätsverlust',
-        'Vertriebsstunden halbieren, Fokus auf Closing',
-        'Skalierbare Pipeline ohne neuen Hire',
+        'Creative-Output pro Kunde verfünffachen',
+        'CPA stabil halten trotz höherem Volume',
+        'Design-Team auf Konzept statt Copy-Paste',
       ],
-      ba: [{ l: 'Response-Rate', b: '3,4 %', a: '7,1 %' }, { l: 'Outreach-Stunden/W', b: '22h', a: '4h' }, { l: 'Termine/Monat', b: '18', a: '46' }],
+      ba: [{ l: 'Creatives/Kunde/W', b: '6', a: '32' }, { l: 'Produktionskosten', b: '100 %', a: '48 %' }, { l: 'CTR Ø', b: '1,4 %', a: '2,3 %' }],
     },
     {
       av: 'KS', n: 'Kerem Süslü', m: 'Gründer · CubeFilm · Leverkusen',
@@ -710,26 +710,26 @@ function Cases() {
       ba: [{ l: 'Projekt-Durchlauf', b: '21 T', a: '4 T' }, { l: 'Skript-Erstellung', b: '2,5 T', a: '3 h' }, { l: 'Projekte/Monat', b: '6', a: '14' }],
     },
     {
-      av: 'TB', n: 'Tobias Brenner', m: '46 · B2B-Leadgen-Agentur · München',
-      tag: 'FULFILLMENT · LEAD & ONBOARDING',
-      headline: '12 neue Kunden in 6 Monaten. Keine neue Einstellung.',
-      q: 'Der Hebel, den ich immer wollte: Wir wachsen, das Team nicht. Die Maschine skaliert, nicht die Headcount-Zahl.',
+      av: 'TB', n: 'Tobias Brenner', m: 'Gründer · Performance-Agentur · München',
+      tag: 'FULFILLMENT · REPORTING & ONBOARDING',
+      headline: 'Freitags kein Reporting mehr. Und trotzdem 2× Kunden pro Team.',
+      q: 'Der Hebel, den ich immer wollte: Wir wachsen, das Team nicht. Die Maschine liefert, nicht die Headcount-Zahl.',
       problem: [
-        'Lead-Qualifizierung händisch — 4h Reaktionszeit',
-        'Onboarding zog sich über 3 Wochen',
-        'Sales-Team verbrannte Zeit mit schlechten Leads',
+        'Client-Reporting fraß jeden Freitag 18–22 Stunden Teamzeit',
+        'Onboarding eines neuen Kunden zog sich über 3 Wochen',
+        'Ad-Account-Pflege war Daily-Handarbeit — kein Raum für Strategie',
       ],
       umgesetzt: [
-        'KI-Leadscoring in < 60s, automatisches Slack-Routing',
-        'Onboarding-Kit generiert sich selbst nach Kickoff-Call',
-        'Outbound-Engine mit hyperpersonalisierten Openern',
+        'Automatisiertes Weekly-Reporting aus Meta/Google Ads mit Kunden-CI',
+        'Onboarding-Kit generiert sich selbst nach Kickoff-Call (Briefing → Setup)',
+        'Ad-Management-Agent überwacht Budgets, Fatigue und schlägt Optimierungen vor',
       ],
       ziel: [
         '2× Kundenzahl pro Mitarbeitenden',
-        'Lead-Response < 5 Minuten',
+        'Reporting von 20h auf unter 1h pro Woche',
         'Onboarding von 3 Wochen auf 3 Tage',
       ],
-      ba: [{ l: 'Kunden/MA', b: '2,1', a: '4,8' }, { l: 'Lead-Response', b: '4h', a: '4 min' }, { l: 'Onboarding', b: '21 T', a: '3 T' }],
+      ba: [{ l: 'Kunden/MA', b: '2,1', a: '4,8' }, { l: 'Reporting/W', b: '20h', a: '45 min' }, { l: 'Onboarding', b: '21 T', a: '3 T' }],
     },
   ]
   return (
@@ -749,11 +749,7 @@ function Cases() {
                 <div className="case-tag">{c.tag}</div>
                 <h3 className="case-headline">{c.headline}</h3>
                 <div className="case-ppl">
-                  {'img' in c && c.img ? (
-                    <img src={c.img} alt={c.n} className="case-av case-av-img" loading="lazy" decoding="async" />
-                  ) : (
-                    <div className="case-av">{c.av}</div>
-                  )}
+                  <div className="case-av">{c.av}</div>
                   <div>
                     <div className="case-n">{c.n}</div>
                     <div className="case-m">{c.m}</div>
@@ -762,11 +758,7 @@ function Cases() {
               </div>
               <div className="case-body">
                 <div className="case-img">
-                  {'img' in c && c.img ? (
-                    <img src={c.img} alt={`Portrait ${c.n}`} className="case-img-photo" loading="lazy" decoding="async" />
-                  ) : (
-                    <div className="case-img-tag">PORTRAIT · {c.n.split(' ')[0]}</div>
-                  )}
+                  <div className="case-img-tag">PORTRAIT · {c.n.split(' ')[0]}</div>
                 </div>
                 <div className="case-points">
                   <div className="case-point">
