@@ -22,7 +22,7 @@ function InputT({ label, placeholder, type = 'text' }: InputProps) {
         style={{
           width: '100%',
           padding: '12px 14px',
-          fontSize: 14,
+          fontSize: 16,
           background: terminal.bg,
           color: terminal.text,
           border: `1px solid ${terminal.border2}`,
@@ -48,7 +48,7 @@ function SelectT({ label, options }: { label?: string; options: string[] }) {
         style={{
           width: '100%',
           padding: '12px 14px',
-          fontSize: 14,
+          fontSize: 16,
           background: terminal.bg,
           color: terminal.text,
           border: `1px solid ${terminal.border2}`,
@@ -263,7 +263,7 @@ export function DemoBewerbung() {
                   style={{
                     width: '100%',
                     padding: '12px 14px',
-                    fontSize: 14,
+                    fontSize: 16,
                     background: terminal.bg,
                     color: terminal.text,
                     border: `1px solid ${terminal.border2}`,
@@ -289,7 +289,7 @@ export function DemoBewerbung() {
                     style={{
                       width: '100%',
                       padding: '12px 14px',
-                      fontSize: 14,
+                      fontSize: 16,
                       background: terminal.bg,
                       color: terminal.text,
                       border: `1px solid ${terminal.border2}`,

@@ -346,13 +346,13 @@ function Outcomes() {
                 <div className="outcome-ba-col">
                   <div className="outcome-ba-lbl">Vorher</div>
                   <div className="outcome-ba-val">{c.before.v}</div>
-                  <div className="outcome-ba-lbl" style={{ marginTop: 4, opacity: 0.7 }}>{c.before.k}</div>
+                  <div className="outcome-ba-lbl" style={{ marginTop: 4 }}>{c.before.k}</div>
                 </div>
                 <div className="outcome-ba-arrow"><Arrow size={18} /></div>
                 <div className="outcome-ba-col after">
                   <div className="outcome-ba-lbl">Nachher</div>
                   <div className="outcome-ba-val">{c.after.v}</div>
-                  <div className="outcome-ba-lbl" style={{ marginTop: 4, opacity: 0.7 }}>{c.after.k}</div>
+                  <div className="outcome-ba-lbl" style={{ marginTop: 4 }}>{c.after.k}</div>
                 </div>
               </div>
             </div>
@@ -520,19 +520,19 @@ function Calculator() {
           <div className="calc-controls">
             <div className="field">
               <div className="field-head">
-                <label>Team-Größe</label>
+                <label htmlFor="calc-team">Team-Größe</label>
                 <span className="field-val">{team} {team === 1 ? 'Person' : 'Personen'}</span>
               </div>
-              <input type="range" min={1} max={50} value={team} onChange={e => setTeam(+e.target.value)} />
+              <input id="calc-team" type="range" min={1} max={50} value={team} onChange={e => setTeam(+e.target.value)} />
               <div className="field-hint">Alle Mitarbeitenden, die an Kundenprojekten mitwirken.</div>
             </div>
 
             <div className="field">
               <div className="field-head">
-                <label>Ø Stundensatz (intern, brutto)</label>
+                <label htmlFor="calc-rate">Ø Stundensatz (intern, brutto)</label>
                 <span className="field-val">{fmt(rate)} €/h</span>
               </div>
-              <input type="range" min={25} max={180} step={5} value={rate} onChange={e => setRate(+e.target.value)} />
+              <input id="calc-rate" type="range" min={25} max={180} step={5} value={rate} onChange={e => setRate(+e.target.value)} />
               <div className="field-hint">Vollkosten pro Mitarbeiter:in inkl. Lohnnebenkosten.</div>
             </div>
 
@@ -649,7 +649,7 @@ function Team() {
         <div className="team-wrap">
           <div>
             <div className="team-portrait">
-              <img src="/claudio.jpg" alt="Claudio Di Franco — Gründer Flowstack" loading="lazy" decoding="async" />
+              <img src="/claudio.jpg" alt="Claudio Di Franco — Gründer Flowstack" width={800} height={649} loading="lazy" decoding="async" />
             </div>
           </div>
           <div>
@@ -807,21 +807,21 @@ function Footer() {
         </div>
         <div className="footer-cols">
           <div className="footer-col">
-            <h4>Leistungen</h4>
+            <h3>Leistungen</h3>
             <a href="#leistungen">Reporting-Automation</a>
             <a href="#leistungen">Content-Pipeline</a>
             <a href="#leistungen">Lead-Systeme</a>
             <a href="#leistungen">Agentur-OS</a>
           </div>
           <div className="footer-col">
-            <h4>Firma</h4>
+            <h3>Firma</h3>
             <a href="#cases">Cases</a>
             <a href="#prozess">Prozess</a>
             <a href="#team">Über Claudio</a>
             <a href="/bewerbung">Kontakt</a>
           </div>
           <div className="footer-col">
-            <h4>Rechtliches</h4>
+            <h3>Rechtliches</h3>
             <a href="/impressum">Impressum</a>
             <a href="/datenschutz">Datenschutz</a>
             <a href="/agb">AGB</a>

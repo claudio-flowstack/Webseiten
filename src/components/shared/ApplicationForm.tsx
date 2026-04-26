@@ -256,7 +256,7 @@ export function ApplicationForm({
               borderRight: 'none',
               borderBottom: `1px solid ${theme.border}`,
               color: theme.text,
-              fontSize: '14px',
+              fontSize: '16px',
               fontWeight: 500,
               fontFamily: theme.font,
               minHeight: '140px',
@@ -318,7 +318,7 @@ export function ApplicationForm({
 
   return (
     <div
-      className="min-h-screen flex flex-col"
+      className="min-h-dvh flex flex-col"
       style={{ backgroundColor: theme.bg, color: theme.text, fontFamily: theme.font }}
     >
       <style>{`
@@ -329,7 +329,7 @@ export function ApplicationForm({
       `}</style>
 
       <nav
-        className="fixed top-0 w-full z-50"
+        className="fixed top-0 w-full z-50 pt-safe"
         style={{
           background: 'rgba(42,44,46,0.6)',
           backdropFilter: 'blur(24px)',
@@ -352,7 +352,7 @@ export function ApplicationForm({
       </nav>
 
       <main
-        className="min-h-screen pt-32 pb-20 px-4"
+        className="min-h-dvh pt-32 pb-20 px-4"
         style={{
           backgroundImage: `radial-gradient(ellipse at 20% 50%, ${theme.accent}0D 0%, transparent 60%)`,
         }}
@@ -586,7 +586,7 @@ function FormInput({
           borderRight: 'none',
           borderBottom: `1px solid ${theme.border}`,
           color: theme.text,
-          fontSize: '14px',
+          fontSize: '16px',
           fontWeight: 500,
           fontFamily: theme.font,
           transition: 'border-color 0.2s',

@@ -128,12 +128,12 @@ export function OptIn() {
   };
 
   return (
-    <div className="vsl-optin" style={{ fontFamily: "'Manrope', sans-serif", minHeight: '100vh', background: '#111415', backgroundImage: 'radial-gradient(ellipse at 20% 50%, rgba(0,241,254,0.03) 0%, transparent 60%)', color: '#f6f6f7' }}>
+    <div className="vsl-optin" style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", minHeight: '100dvh', background: '#111415', backgroundImage: 'radial-gradient(ellipse at 20% 50%, rgba(0,241,254,0.03) 0%, transparent 60%)', color: '#f6f6f7' }}>
       <style>{`
         .vsl-optin .optin-header { padding: 14px 16px; }
         .vsl-optin .optin-header-label { display: none; }
         .vsl-optin .optin-main { padding: 48px 16px 64px; }
-        .vsl-optin .optin-headline { font-size: clamp(22px, 5vw, 42px); margin-bottom: 48px; }
+        .vsl-optin .optin-headline { font-size: clamp(22px, 5vw, 42px); margin-bottom: 48px; min-height: 180px; }
         .vsl-optin .optin-columns { display: flex; gap: 24px; flex-direction: column; }
         .vsl-optin .optin-col-left { min-width: 0; }
         .vsl-optin .optin-col-right { min-width: 0; }
@@ -146,7 +146,7 @@ export function OptIn() {
           .vsl-optin .optin-header { padding: 16px 24px; }
           .vsl-optin .optin-header-label { display: block; }
           .vsl-optin .optin-main { padding: 88px 20px 88px; }
-          .vsl-optin .optin-headline { margin-bottom: 64px; }
+          .vsl-optin .optin-headline { margin-bottom: 64px; min-height: 110px; }
           .vsl-optin .optin-columns { flex-direction: row; gap: 56px; }
           .vsl-optin .optin-col-left { flex: 1; min-width: 280px; }
           .vsl-optin .optin-col-right { flex: 1; min-width: 300px; }
@@ -157,10 +157,10 @@ export function OptIn() {
         }
       `}</style>
       {/* Header */}
-      <header className="optin-header" style={{ background: 'rgba(42,44,46,0.6)', backdropFilter: 'blur(24px)', boxShadow: '0 1px 8px rgba(0,0,0,0.3)', position: 'sticky', top: 0, zIndex: 50 }}>
+      <header className="optin-header" style={{ background: 'rgba(42,44,46,0.6)', backdropFilter: 'blur(24px)', boxShadow: '0 1px 8px rgba(0,0,0,0.3)', position: 'sticky', top: 0, zIndex: 50, paddingTop: 'env(safe-area-inset-top)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <span style={{ fontFamily: "'Manrope', sans-serif", fontSize: 20, fontWeight: 800, letterSpacing: '-0.02em', color: '#f6f6f7' }}>
+            <span style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontSize: 20, fontWeight: 800, letterSpacing: '-0.02em', color: '#f6f6f7' }}>
               Flow<span style={{ color: '#99f7ff' }}>stack</span>
             </span>
           </div>
@@ -174,7 +174,7 @@ export function OptIn() {
       <main className="optin-main" style={{ maxWidth: 1100, margin: '0 auto' }}>
         {/* Headline */}
         <h1 className="optin-headline" style={{
-          fontFamily: "'Manrope', sans-serif",
+          fontFamily: "'Inter Tight', 'Geist', sans-serif",
           fontSize: 'clamp(22px, 5vw, 42px)',
           fontWeight: 800,
           lineHeight: 1.15,
@@ -199,10 +199,33 @@ export function OptIn() {
               overflow: 'hidden',
               boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
             }}>
-              <img src="/claudio-hero.jpg" alt="Claudio Di Franco" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <picture>
+                <source
+                  type="image/avif"
+                  srcSet="/claudio-hero-480.avif 480w, /claudio-hero-768.avif 768w, /claudio-hero-1200.avif 1200w"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <source
+                  type="image/webp"
+                  srcSet="/claudio-hero-480.webp 480w, /claudio-hero-768.webp 768w, /claudio-hero-1200.webp 1200w"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <img
+                  src="/claudio-hero-1200.jpg"
+                  srcSet="/claudio-hero-480.jpg 480w, /claudio-hero-768.jpg 768w, /claudio-hero-1200.jpg 1200w"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  alt="Claudio Di Franco"
+                  width={1200}
+                  height={900}
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+              </picture>
             </div>
             <div style={{ marginTop: 16, background: '#111415', borderRadius: '0.5rem', padding: '14px 18px' }}>
-              <p style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800, fontSize: 15, marginBottom: 2, color: '#f6f6f7', letterSpacing: '-0.02em' }}>CLAUDIO DI FRANCO</p>
+              <p style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontWeight: 800, fontSize: 15, marginBottom: 2, color: '#f6f6f7', letterSpacing: '-0.02em' }}>CLAUDIO DI FRANCO</p>
               <p style={{ fontSize: 13, color: '#c4c5c7', fontWeight: 500 }}>Experte für KI-Automatisierung & Agentur-Skalierung</p>
             </div>
           </div>
@@ -307,11 +330,12 @@ export function OptIn() {
             borderRadius: 12,
             width: '100%',
             maxWidth: 720,
+            maxHeight: '90dvh',
             position: 'relative',
             boxShadow: '0 32px 64px rgba(0,0,0,0.5), 0 0 60px rgba(0,241,254,0.05)',
             display: 'flex',
             flexDirection: 'row',
-            overflow: 'hidden',
+            overflow: 'auto',
           }}>
             <style>{`
               @media (max-width: 640px) {
@@ -346,7 +370,7 @@ export function OptIn() {
               </button>
 
               <h2 style={{
-                fontFamily: "'Manrope', sans-serif",
+                fontFamily: "'Inter Tight', 'Geist', sans-serif",
                 fontWeight: 800,
                 fontSize: 22,
                 letterSpacing: '-0.02em',
@@ -388,8 +412,8 @@ export function OptIn() {
                         borderBottom: '1px solid #464849',
                         borderRadius: 0,
                         color: '#f6f6f7',
-                        fontSize: 14,
-                        fontFamily: "'Manrope', sans-serif",
+                        fontSize: 16,
+                        fontFamily: "'Inter Tight', 'Geist', sans-serif",
                         fontWeight: 500,
                         outline: 'none',
                         boxSizing: 'border-box',
@@ -419,8 +443,8 @@ export function OptIn() {
                         borderBottom: '1px solid #464849',
                         borderRadius: 0,
                         color: '#f6f6f7',
-                        fontSize: 14,
-                        fontFamily: "'Manrope', sans-serif",
+                        fontSize: 16,
+                        fontFamily: "'Inter Tight', 'Geist', sans-serif",
                         fontWeight: 500,
                         outline: 'none',
                         boxSizing: 'border-box',
@@ -442,8 +466,8 @@ export function OptIn() {
                         border: 'none',
                         borderBottom: '1px solid #464849',
                         color: '#f6f6f7',
-                        fontSize: 14,
-                        fontFamily: "'Manrope', sans-serif",
+                        fontSize: 16,
+                        fontFamily: "'Inter Tight', 'Geist', sans-serif",
                         fontWeight: 500,
                         padding: '11px 4px',
                         outline: 'none',
@@ -472,8 +496,8 @@ export function OptIn() {
                         borderBottom: '1px solid #464849',
                         borderRadius: 0,
                         color: '#f6f6f7',
-                        fontSize: 14,
-                        fontFamily: "'Manrope', sans-serif",
+                        fontSize: 16,
+                        fontFamily: "'Inter Tight', 'Geist', sans-serif",
                         fontWeight: 500,
                         outline: 'none',
                         boxSizing: 'border-box',
@@ -500,7 +524,7 @@ export function OptIn() {
                     borderRadius: 4,
                     fontSize: 15,
                     fontWeight: 700,
-                    fontFamily: "'Manrope', sans-serif",
+                    fontFamily: "'Inter Tight', 'Geist', sans-serif",
                     cursor: submitting ? 'wait' : 'pointer',
                     marginTop: 4,
                     transition: 'box-shadow 0.2s ease',
@@ -538,7 +562,7 @@ export function OptIn() {
                   style={{
                     width: '100%', padding: '16px 0', background: 'transparent', border: 'none',
                     borderBottom: '2px solid #99f7ff', borderRadius: 0, color: '#f6f6f7', fontSize: 28,
-                    fontFamily: "'Manrope', sans-serif", fontWeight: 700, letterSpacing: '0.3em',
+                    fontFamily: "'Inter Tight', 'Geist', sans-serif", fontWeight: 700, letterSpacing: '0.3em',
                     textAlign: 'center', outline: 'none', boxSizing: 'border-box',
                   }}
                   autoFocus
@@ -553,7 +577,7 @@ export function OptIn() {
                     width: '100%', padding: '16px 24px',
                     background: (submitting || verifyCode.length !== 6) ? 'rgba(153,247,255,0.4)' : 'linear-gradient(135deg, #99f7ff, #00e2ee)',
                     color: '#003538', border: 'none', borderRadius: 4, fontSize: 15, fontWeight: 700,
-                    fontFamily: "'Manrope', sans-serif",
+                    fontFamily: "'Inter Tight', 'Geist', sans-serif",
                     cursor: (submitting || verifyCode.length !== 6) ? 'not-allowed' : 'pointer',
                   }}
                 >
@@ -610,7 +634,7 @@ export function OptIn() {
               </div>
 
               <div style={{ textAlign: 'center' }}>
-                <p style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 700, fontSize: 14, color: '#f6f6f7', marginBottom: 8 }}>
+                <p style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontWeight: 700, fontSize: 14, color: '#f6f6f7', marginBottom: 8 }}>
                   Exklusives Videotraining
                 </p>
                 <p style={{ fontSize: 12, color: '#c4c5c7', lineHeight: 1.5 }}>
@@ -634,10 +658,10 @@ export function OptIn() {
             <a href="/impressum" target="_blank" rel="noopener noreferrer" style={{ color: '#c4c5c7', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => { (e.target as HTMLAnchorElement).style.color = '#99f7ff'; }} onMouseLeave={(e) => { (e.target as HTMLAnchorElement).style.color = '#c4c5c7'; }}>Impressum</a>
             <a href="/datenschutz" target="_blank" rel="noopener noreferrer" style={{ color: '#c4c5c7', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => { (e.target as HTMLAnchorElement).style.color = '#99f7ff'; }} onMouseLeave={(e) => { (e.target as HTMLAnchorElement).style.color = '#c4c5c7'; }}>Datenschutz</a>
           </div>
-          <p style={{ fontSize: 11, color: '#464849', maxWidth: 600, lineHeight: 1.5, fontWeight: 500 }}>
+          <p style={{ fontSize: 11, color: '#9ca3af', maxWidth: 600, lineHeight: 1.5, fontWeight: 500 }}>
             Diese Website ist nicht Teil der Facebook-Website oder von Facebook Inc. Diese Seite ist NICHT im Auftrag der FACEBOOK, Inc. entstanden. FACEBOOK ist eine Marke von FACEBOOK, Inc.
           </p>
-          <p style={{ fontSize: 11, color: '#464849', fontWeight: 500 }}>&copy; 2026 Flowstack. Alle Rechte vorbehalten.</p>
+          <p style={{ fontSize: 11, color: '#9ca3af', fontWeight: 500 }}>&copy; 2026 Flowstack. Alle Rechte vorbehalten.</p>
         </div>
       </footer>
     </div>

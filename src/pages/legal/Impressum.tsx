@@ -33,7 +33,7 @@ export function Impressum() {
   );
 
   return (
-    <div className="legal-impressum" style={{ fontFamily: "'Manrope', sans-serif", minHeight: '100vh', background: '#111415', backgroundImage: 'radial-gradient(ellipse at 20% 50%, rgba(0,241,254,0.03) 0%, transparent 60%)', color: '#f6f6f7', display: 'flex', flexDirection: 'column' }}>
+    <div className="legal-impressum" style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", minHeight: '100dvh', background: '#111415', backgroundImage: 'radial-gradient(ellipse at 20% 50%, rgba(0,241,254,0.03) 0%, transparent 60%)', color: '#f6f6f7', display: 'flex', flexDirection: 'column' }}>
       <style>{`
         .legal-impressum .legal-header { padding: 14px 16px; }
         .legal-impressum .legal-main { padding: 48px 16px 64px; }
@@ -49,10 +49,10 @@ export function Impressum() {
       `}</style>
 
       {/* Header */}
-      <header className="legal-header" style={{ background: 'rgba(42,44,46,0.6)', backdropFilter: 'blur(24px)', boxShadow: '0 1px 8px rgba(0,0,0,0.3)', position: 'sticky', top: 0, zIndex: 50, paddingBottom: 24 }}>
+      <header className="legal-header" style={{ background: 'rgba(42,44,46,0.6)', backdropFilter: 'blur(24px)', boxShadow: '0 1px 8px rgba(0,0,0,0.3)', position: 'sticky', top: 0, zIndex: 50, paddingTop: 'env(safe-area-inset-top)', paddingBottom: 24 }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <span style={{ fontFamily: "'Manrope', sans-serif", fontSize: 20, fontWeight: 800, letterSpacing: '-0.02em', color: '#f6f6f7' }}>
+            <span style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontSize: 20, fontWeight: 800, letterSpacing: '-0.02em', color: '#f6f6f7' }}>
               Flow<span style={{ color: '#99f7ff' }}>stack</span>
             </span>
           </div>
@@ -61,7 +61,7 @@ export function Impressum() {
 
       {/* Main */}
       <main className="legal-main" style={{ flex: 1, maxWidth: 720, margin: '0 auto', width: '100%', boxSizing: 'border-box' }}>
-        <h1 className="legal-title" style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.15, color: '#f6f6f7', marginTop: 0, marginBottom: 56 }}>
+        <h1 className="legal-title" style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.15, color: '#f6f6f7', marginTop: 0, marginBottom: 56 }}>
           Impressum
         </h1>
 
@@ -69,7 +69,7 @@ export function Impressum() {
         <section style={{ marginBottom: 56 }}>
           <div style={cardStyle}>
             {accentLine}
-            <h2 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800, fontSize: 20, color: '#f6f6f7', marginBottom: 16, marginTop: 0, letterSpacing: '-0.02em' }}>
+            <h2 style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontWeight: 800, fontSize: 20, color: '#f6f6f7', marginBottom: 16, marginTop: 0, letterSpacing: '-0.02em' }}>
               Angaben gemäß § 5 DDG
             </h2>
             <p style={{ color: '#c4c5c7', fontWeight: 500, lineHeight: 1.8, fontSize: 15, margin: 0 }}>
@@ -85,7 +85,7 @@ export function Impressum() {
         <section style={{ marginBottom: 56 }}>
           <div style={cardStyle}>
             {accentLine}
-            <h2 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800, fontSize: 20, color: '#f6f6f7', marginBottom: 16, marginTop: 0, letterSpacing: '-0.02em' }}>
+            <h2 style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontWeight: 800, fontSize: 20, color: '#f6f6f7', marginBottom: 16, marginTop: 0, letterSpacing: '-0.02em' }}>
               Kontakt
             </h2>
             <p style={{ color: '#c4c5c7', fontWeight: 500, lineHeight: 1.8, fontSize: 15, margin: 0 }}>
@@ -101,7 +101,7 @@ export function Impressum() {
         <section style={{ marginBottom: 56 }}>
           <div style={cardStyle}>
             {accentLine}
-            <h2 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800, fontSize: 20, color: '#f6f6f7', marginBottom: 16, marginTop: 0, letterSpacing: '-0.02em' }}>
+            <h2 style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontWeight: 800, fontSize: 20, color: '#f6f6f7', marginBottom: 16, marginTop: 0, letterSpacing: '-0.02em' }}>
               Umsatzsteuer-Identifikationsnummer
             </h2>
             <p style={{ color: '#c4c5c7', fontWeight: 500, lineHeight: 1.8, fontSize: 15, margin: 0 }}>
@@ -115,7 +115,7 @@ export function Impressum() {
         <section style={{ marginBottom: 56 }}>
           <div style={cardStyle}>
             {accentLine}
-            <h2 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800, fontSize: 20, color: '#f6f6f7', marginBottom: 16, marginTop: 0, letterSpacing: '-0.02em' }}>
+            <h2 style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontWeight: 800, fontSize: 20, color: '#f6f6f7', marginBottom: 16, marginTop: 0, letterSpacing: '-0.02em' }}>
               Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
             </h2>
             <p style={{ color: '#c4c5c7', fontWeight: 500, lineHeight: 1.8, fontSize: 15, margin: 0 }}>
@@ -130,12 +130,12 @@ export function Impressum() {
         <section style={{ marginBottom: 56 }}>
           <div style={cardStyle}>
             {accentLine}
-            <h2 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800, fontSize: 20, color: '#f6f6f7', marginBottom: 24, marginTop: 0, letterSpacing: '-0.02em' }}>
+            <h2 style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontWeight: 800, fontSize: 20, color: '#f6f6f7', marginBottom: 24, marginTop: 0, letterSpacing: '-0.02em' }}>
               Haftungsausschluss
             </h2>
 
             <div style={{ marginBottom: 28 }}>
-              <h3 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800, fontSize: 17, color: '#f6f6f7', marginBottom: 10, letterSpacing: '-0.01em' }}>
+              <h3 style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontWeight: 800, fontSize: 17, color: '#f6f6f7', marginBottom: 10, letterSpacing: '-0.01em' }}>
                 Haftung für Inhalte
               </h3>
               <p style={{ color: '#c4c5c7', fontWeight: 500, lineHeight: 1.8, fontSize: 15, margin: 0 }}>
@@ -144,7 +144,7 @@ export function Impressum() {
             </div>
 
             <div style={{ marginBottom: 28 }}>
-              <h3 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800, fontSize: 17, color: '#f6f6f7', marginBottom: 10, letterSpacing: '-0.01em' }}>
+              <h3 style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontWeight: 800, fontSize: 17, color: '#f6f6f7', marginBottom: 10, letterSpacing: '-0.01em' }}>
                 Haftung für Links
               </h3>
               <p style={{ color: '#c4c5c7', fontWeight: 500, lineHeight: 1.8, fontSize: 15, margin: 0 }}>
@@ -153,7 +153,7 @@ export function Impressum() {
             </div>
 
             <div style={{ marginBottom: 0 }}>
-              <h3 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800, fontSize: 17, color: '#f6f6f7', marginBottom: 10, letterSpacing: '-0.01em' }}>
+              <h3 style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontWeight: 800, fontSize: 17, color: '#f6f6f7', marginBottom: 10, letterSpacing: '-0.01em' }}>
                 Urheberrecht
               </h3>
               <p style={{ color: '#c4c5c7', fontWeight: 500, lineHeight: 1.8, fontSize: 15, margin: 0 }}>
@@ -167,7 +167,7 @@ export function Impressum() {
         <section style={{ marginBottom: 56 }}>
           <div style={cardStyle}>
             {accentLine}
-            <h2 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800, fontSize: 20, color: '#f6f6f7', marginBottom: 16, marginTop: 0, letterSpacing: '-0.02em' }}>
+            <h2 style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontWeight: 800, fontSize: 20, color: '#f6f6f7', marginBottom: 16, marginTop: 0, letterSpacing: '-0.02em' }}>
               EU-Streitschlichtung
             </h2>
             <p style={{ color: '#c4c5c7', fontWeight: 500, lineHeight: 1.8, fontSize: 15, margin: '0 0 12px 0' }}>
@@ -187,7 +187,7 @@ export function Impressum() {
           <a
             className="legal-back-btn"
             href="/kostenloses-videotraining"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#99f7ff', textDecoration: 'none', fontSize: 15, fontWeight: 700, fontFamily: "'Manrope', sans-serif", transition: 'background 0.2s, border-color 0.2s', border: '1px solid rgba(70,72,73,0.2)', padding: '12px 24px', borderRadius: 4 }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#99f7ff', textDecoration: 'none', fontSize: 15, fontWeight: 700, fontFamily: "'Inter Tight', 'Geist', sans-serif", transition: 'background 0.2s, border-color 0.2s', border: '1px solid rgba(70,72,73,0.2)', padding: '12px 24px', borderRadius: 4 }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(153,247,255,0.05)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(153,247,255,0.2)'; }}
             onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(70,72,73,0.2)'; }}
           >

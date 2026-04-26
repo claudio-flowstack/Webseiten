@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
     <title>Flowstack System · KI-Automatisierung für Agenturen</title>
     <meta name="description" content="Flowstack baut maßgeschneiderte KI-Workflows für Marketing-Agenturen. Reporting, Content-Produktion, Lead-Qualifizierung — automatisiert in 30 Tagen." />
     <meta name="theme-color" content="#0a0a0e" />
@@ -11,13 +12,13 @@
     <meta property="og:locale" content="de_DE" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Fraunces:ital,wght@0,400..600;1,400..600&family=Inter+Tight:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Fraunces:ital,wght@0,400..600;1,400..600&family=Inter+Tight:wght@400;500;600;700&display=swap" /></noscript>
-    <script defer src="https://js.puter.com/v2/"></script>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Inter+Tight:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Inter+Tight:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" /></noscript>
     <style>
-      html,body{background:#0a0a0e;color:#e5e7eb;margin:0}
-      body{font-family:"Geist","Inter Tight",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-      #root{min-height:100vh}
+      html,body{background:#0a0a0e;color:#e5e7eb;margin:0;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+      html{-webkit-tap-highlight-color:transparent}
+      body{font-family:"Geist","Inter Tight",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:clip}
+      #root{min-height:100vh;min-height:100dvh}
       .app-splash{position:fixed;inset:0;display:grid;place-items:center;background:#0a0a0e;z-index:9999}
       .app-splash i{width:28px;height:28px;border-radius:50%;border:2px solid rgba(255,255,255,0.12);border-top-color:#22d3ee;animation:spin 0.9s linear infinite;display:block}
       @keyframes spin{to{transform:rotate(360deg)}}

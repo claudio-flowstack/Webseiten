@@ -126,7 +126,7 @@ export function Booking() {
     document.documentElement.classList.add('dark');
     document.body.style.backgroundColor = '#111415';
     document.body.style.color = '#f6f6f7';
-    document.body.style.fontFamily = "'Manrope', sans-serif";
+    document.body.style.fontFamily = "'Inter Tight', 'Geist', sans-serif";
     document.body.style.margin = '0';
     return () => {
       document.documentElement.classList.remove('dark');
@@ -287,8 +287,8 @@ export function Booking() {
     borderBottom: '1px solid #464849',
     backgroundColor: 'transparent',
     color: '#f6f6f7',
-    fontSize: 14,
-    fontFamily: "'Manrope', sans-serif",
+    fontSize: 16,
+    fontFamily: "'Inter Tight', 'Geist', sans-serif",
     fontWeight: 500,
     outline: 'none',
     transition: 'border-color 0.2s',
@@ -298,7 +298,7 @@ export function Booking() {
     <div
       className="vsl-booking"
       style={{
-        minHeight: '100vh',
+        minHeight: '100dvh',
         backgroundColor: '#111415',
         backgroundImage: 'radial-gradient(ellipse at 20% 50%, rgba(0,241,254,0.03) 0%, transparent 60%)',
         color: '#f6f6f7',
@@ -336,6 +336,7 @@ export function Booking() {
           backgroundColor: 'rgba(42,44,46,0.6)',
           backdropFilter: 'blur(24px)',
           WebkitBackdropFilter: 'blur(24px)',
+          paddingTop: 'env(safe-area-inset-top)',
         }}
       >
         <div
@@ -352,7 +353,7 @@ export function Booking() {
               fontSize: 20,
               fontWeight: 800,
               letterSpacing: '-0.02em',
-              fontFamily: "'Manrope', sans-serif",
+              fontFamily: "'Inter Tight', 'Geist', sans-serif",
               color: '#f6f6f7',
             }}
           >
@@ -365,7 +366,7 @@ export function Booking() {
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
               color: '#f6f6f7',
-              fontFamily: "'Manrope', sans-serif",
+              fontFamily: "'Inter Tight', 'Geist', sans-serif",
             }}
           >
             Termin
@@ -379,7 +380,7 @@ export function Booking() {
         <div className="booking-headline-wrap" style={{ textAlign: 'center' }}>
           <h1
             style={{
-              fontFamily: "'Manrope', sans-serif",
+              fontFamily: "'Inter Tight', 'Geist', sans-serif",
               fontSize: 'clamp(26px, 4vw, 42px)',
               fontWeight: 800,
               letterSpacing: '-0.02em',
@@ -391,7 +392,7 @@ export function Booking() {
           </h1>
           <p
             style={{
-              fontFamily: "'Manrope', sans-serif",
+              fontFamily: "'Inter Tight', 'Geist', sans-serif",
               fontSize: 16,
               fontWeight: 500,
               color: '#c4c5c7',
@@ -421,7 +422,7 @@ export function Booking() {
             <div>
               <h3
                 style={{
-                  fontFamily: "'Manrope', sans-serif",
+                  fontFamily: "'Inter Tight', 'Geist', sans-serif",
                   fontSize: 20,
                   fontWeight: 700,
                   color: '#f6f6f7',
@@ -466,7 +467,7 @@ export function Booking() {
                     <div>
                       <h4
                         style={{
-                          fontFamily: "'Manrope', sans-serif",
+                          fontFamily: "'Inter Tight', 'Geist', sans-serif",
                           fontWeight: 700,
                           fontSize: 15,
                           color: '#f6f6f7',
@@ -477,7 +478,7 @@ export function Booking() {
                       </h4>
                       <p
                         style={{
-                          fontFamily: "'Manrope', sans-serif",
+                          fontFamily: "'Inter Tight', 'Geist', sans-serif",
                           fontSize: 13,
                           fontWeight: 500,
                           color: '#c4c5c7',
@@ -524,7 +525,7 @@ export function Booking() {
               </div>
               <p
                 style={{
-                  fontFamily: "'Manrope', sans-serif",
+                  fontFamily: "'Inter Tight', 'Geist', sans-serif",
                   fontSize: 13,
                   fontWeight: 600,
                   color: '#c4c5c7',
@@ -586,7 +587,7 @@ export function Booking() {
                         textTransform: 'uppercase',
                         letterSpacing: '0.08em',
                         color: '#747677',
-                        fontFamily: "'Manrope', sans-serif",
+                        fontFamily: "'Inter Tight', 'Geist', sans-serif",
                         margin: 0,
                         marginBottom: 4,
                       }}
@@ -595,7 +596,7 @@ export function Booking() {
                     </p>
                     <h3
                       style={{
-                        fontFamily: "'Manrope', sans-serif",
+                        fontFamily: "'Inter Tight', 'Geist', sans-serif",
                         fontSize: 17,
                         fontWeight: 700,
                         color: '#f6f6f7',
@@ -608,11 +609,11 @@ export function Booking() {
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, color: '#c4c5c7' }}>
                       <Clock size={16} />
-                      <span style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 500 }}>15-20 Min.</span>
+                      <span style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontWeight: 500 }}>15-20 Min.</span>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, color: '#c4c5c7' }}>
                       <Phone size={16} />
-                      <span style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 500 }}>
+                      <span style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontWeight: 500 }}>
                         Telefonat
                       </span>
                     </div>
@@ -631,7 +632,7 @@ export function Booking() {
                         borderRadius: 8,
                         color: '#f6f6f7',
                         fontSize: 13,
-                        fontFamily: "'Manrope', sans-serif",
+                        fontFamily: "'Inter Tight', 'Geist', sans-serif",
                         fontWeight: 500,
                         padding: '10px 12px',
                         cursor: 'pointer',
@@ -672,7 +673,7 @@ export function Booking() {
                                 border: 'none',
                                 padding: '10px 14px',
                                 fontSize: 13,
-                                fontFamily: "'Manrope', sans-serif",
+                                fontFamily: "'Inter Tight', 'Geist', sans-serif",
                                 fontWeight: timezone === tz.value ? 600 : 500,
                                 color: timezone === tz.value ? '#99f7ff' : '#c4c5c7',
                                 cursor: 'pointer',
@@ -705,7 +706,7 @@ export function Booking() {
                     >
                       <p
                         style={{
-                          fontFamily: "'Manrope', sans-serif",
+                          fontFamily: "'Inter Tight', 'Geist', sans-serif",
                           fontSize: 13,
                           fontWeight: 600,
                           color: '#99f7ff',
@@ -716,7 +717,7 @@ export function Booking() {
                       </p>
                       <p
                         style={{
-                          fontFamily: "'Manrope', sans-serif",
+                          fontFamily: "'Inter Tight', 'Geist', sans-serif",
                           fontSize: 13,
                           fontWeight: 500,
                           color: '#c4c5c7',
@@ -745,7 +746,7 @@ export function Booking() {
                     >
                       <h3
                         style={{
-                          fontFamily: "'Manrope', sans-serif",
+                          fontFamily: "'Inter Tight', 'Geist', sans-serif",
                           fontSize: 17,
                           fontWeight: 700,
                           color: '#f6f6f7',
@@ -815,7 +816,7 @@ export function Booking() {
                             fontSize: 11,
                             fontWeight: 600,
                             color: '#747677',
-                            fontFamily: "'Manrope', sans-serif",
+                            fontFamily: "'Inter Tight', 'Geist', sans-serif",
                             padding: '4px 0',
                           }}
                         >
@@ -886,7 +887,7 @@ export function Booking() {
                               cursor: 'pointer',
                               transition: 'all 0.15s',
                               boxShadow: isSelected ? '0 0 15px rgba(0,241,254,0.3)' : 'none',
-                              fontFamily: "'Manrope', sans-serif",
+                              fontFamily: "'Inter Tight', 'Geist', sans-serif",
                             }}
                             onMouseEnter={(e) => {
                               if (!isSelected) e.currentTarget.style.backgroundColor = '#1e2021';
@@ -912,7 +913,7 @@ export function Booking() {
                       >
                         <h4
                           style={{
-                            fontFamily: "'Manrope', sans-serif",
+                            fontFamily: "'Inter Tight', 'Geist', sans-serif",
                             fontSize: 14,
                             fontWeight: 700,
                             color: '#f6f6f7',
@@ -925,7 +926,7 @@ export function Booking() {
                         {availableSlots.length === 0 ? (
                           <p
                             style={{
-                              fontFamily: "'Manrope', sans-serif",
+                              fontFamily: "'Inter Tight', 'Geist', sans-serif",
                               fontSize: 14,
                               color: '#c4c5c7',
                               fontWeight: 500,
@@ -960,7 +961,7 @@ export function Booking() {
                                     borderRadius: 10,
                                     fontSize: 14,
                                     fontWeight: 600,
-                                    fontFamily: "'Manrope', sans-serif",
+                                    fontFamily: "'Inter Tight', 'Geist', sans-serif",
                                     backgroundColor: '#1e2021',
                                     color: isTimeSelected ? '#99f7ff' : '#c4c5c7',
                                     border: isTimeSelected
@@ -992,7 +993,7 @@ export function Booking() {
                               color: '#003538',
                               fontSize: 14,
                               fontWeight: 700,
-                              fontFamily: "'Manrope', sans-serif",
+                              fontFamily: "'Inter Tight', 'Geist', sans-serif",
                               cursor: 'pointer',
                               transition: 'all 0.2s',
                               boxShadow: '0 0 15px rgba(0,241,254,0.3)',
@@ -1011,7 +1012,7 @@ export function Booking() {
                   <div>
                     <h3
                       style={{
-                        fontFamily: "'Manrope', sans-serif",
+                        fontFamily: "'Inter Tight', 'Geist', sans-serif",
                         fontSize: 20,
                         fontWeight: 700,
                         color: '#f6f6f7',
@@ -1022,7 +1023,7 @@ export function Booking() {
                     </h3>
                     <p
                       style={{
-                        fontFamily: "'Manrope', sans-serif",
+                        fontFamily: "'Inter Tight', 'Geist', sans-serif",
                         fontSize: 14,
                         color: '#99f7ff',
                         fontWeight: 600,
@@ -1074,7 +1075,7 @@ export function Booking() {
                             color: '#c4c5c7',
                             fontSize: 13,
                             fontWeight: 600,
-                            fontFamily: "'Manrope', sans-serif",
+                            fontFamily: "'Inter Tight', 'Geist', sans-serif",
                             cursor: 'pointer',
                             display: 'flex',
                             alignItems: 'center',
@@ -1100,7 +1101,7 @@ export function Booking() {
                             color: bookingSubmitted ? '#1e2021' : '#003538',
                             fontSize: 14,
                             fontWeight: 700,
-                            fontFamily: "'Manrope', sans-serif",
+                            fontFamily: "'Inter Tight', 'Geist', sans-serif",
                             cursor: bookingSubmitted ? 'not-allowed' : 'pointer',
                             transition: 'all 0.2s',
                             boxShadow: bookingSubmitted ? 'none' : '0 0 15px rgba(0,241,254,0.3)',
@@ -1156,14 +1157,14 @@ export function Booking() {
               color: '#464849',
               maxWidth: 600,
               lineHeight: 1.5,
-              fontFamily: "'Manrope', sans-serif",
+              fontFamily: "'Inter Tight', 'Geist', sans-serif",
               fontWeight: 500,
             }}
           >
             Diese Website ist nicht Teil der Facebook-Website oder von Facebook Inc. Diese Seite ist NICHT im
             Auftrag der FACEBOOK, Inc. entstanden. FACEBOOK ist eine Marke von FACEBOOK, Inc.
           </p>
-          <p style={{ fontSize: 11, color: '#464849', fontFamily: "'Manrope', sans-serif", fontWeight: 500 }}>
+          <p style={{ fontSize: 11, color: '#464849', fontFamily: "'Inter Tight', 'Geist', sans-serif", fontWeight: 500 }}>
             © 2026 Flowstack. Alle Rechte vorbehalten.
           </p>
         </div>

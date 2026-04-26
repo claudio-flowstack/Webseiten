@@ -41,7 +41,7 @@ export function App() {
       <RouteTracker />
       <ErrorBoundary
         fallback={
-          <div className="min-h-screen bg-[#0a0a0e] text-white flex items-center justify-center p-6">
+          <div className="min-h-dvh bg-[#0a0a0e] text-white flex items-center justify-center p-6">
             <div className="max-w-md text-center">
               <h1 className="text-2xl font-semibold mb-3">Etwas ist schiefgelaufen</h1>
               <p className="text-gray-400 mb-6">
@@ -57,7 +57,7 @@ export function App() {
           </div>
         }
       >
-        <Suspense fallback={<div className="min-h-screen bg-[#0a0a0e]" />}>
+        <Suspense fallback={<div className="min-h-dvh bg-[#0a0a0e]" />}>
           <Routes>
           {/* Homepage-Funnel */}
           <Route path="/" element={<HomePage />} />

@@ -54,7 +54,7 @@ export function useSeo(config: SeoConfig): void {
         ? window.location.origin
         : PROD_ORIGIN
     const url = `${origin}${path}`
-    const ogImage = image ? `${origin}${image}` : `${origin}/claudio-hero.jpg`
+    const ogImage = image ? `${origin}${image}` : `${origin}/claudio-hero-1200.jpg`
 
     const prevTitle = document.title
     document.title = title

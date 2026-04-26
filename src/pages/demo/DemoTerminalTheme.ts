@@ -6,7 +6,7 @@ export const terminal = {
   border2: 'rgba(255,255,255,0.14)',
   text: '#e6e4df',
   dim: 'rgba(230,228,223,0.55)',
-  mono: '"Geist Mono", "JetBrains Mono", ui-monospace, monospace',
+  mono: '"Geist Mono", ui-monospace, monospace',
   sans: '"Geist", "Inter Tight", -apple-system, sans-serif',
-  serif: '"Fraunces", Georgia, serif',
+  serif: '"Instrument Serif", Georgia, serif',
 } as const

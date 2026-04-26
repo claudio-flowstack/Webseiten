@@ -127,7 +127,7 @@ export function TermNav() {
           N
         </div>
         <span style={{ fontWeight: 600 }}>novacode</span>
-        <span style={{ opacity: 0.4, marginLeft: 6 }}>/careers</span>
+        <span style={{ opacity: 0.65, marginLeft: 6 }}>/careers</span>
       </Link>
       <div style={{ display: 'flex', gap: 28, alignItems: 'center' }}>
         {DEFAULT_NAV_LINKS.map(l => (
@@ -187,7 +187,7 @@ export function DemoTerminalShell({ children }: { children: ReactNode }) {
     <div
       style={{
         width: '100%',
-        minHeight: '100vh',
+        minHeight: '100dvh',
         background: terminal.bg,
         color: terminal.text,
         fontFamily: terminal.sans,

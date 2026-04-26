@@ -15,7 +15,7 @@ export function Danke() {
     document.documentElement.classList.add('dark');
     document.body.style.backgroundColor = '#111415';
     document.body.style.color = '#f6f6f7';
-    document.body.style.fontFamily = "'Manrope', sans-serif";
+    document.body.style.fontFamily = "'Inter Tight', 'Geist', sans-serif";
     document.body.style.margin = '0';
     return () => {
       document.documentElement.classList.remove('dark');
@@ -32,7 +32,7 @@ export function Danke() {
   ];
 
   return (
-    <div className="vsl-danke" style={{ minHeight: '100vh', backgroundColor: '#111415', backgroundImage: 'radial-gradient(ellipse at 20% 50%, rgba(0,241,254,0.03) 0%, transparent 60%)', color: '#f6f6f7' }}>
+    <div className="vsl-danke" style={{ minHeight: '100dvh', backgroundColor: '#111415', backgroundImage: 'radial-gradient(ellipse at 20% 50%, rgba(0,241,254,0.03) 0%, transparent 60%)', color: '#f6f6f7' }}>
       <style>{`
         .vsl-danke .danke-header { padding: 12px 16px; }
         .vsl-danke .danke-main { padding: 36px 16px 48px; }
@@ -56,9 +56,9 @@ export function Danke() {
         }
       `}</style>
       {/* Header */}
-      <header className="danke-header" style={{ backgroundColor: 'rgba(42,44,46,0.6)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)' }}>
+      <header className="danke-header" style={{ backgroundColor: 'rgba(42,44,46,0.6)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', paddingTop: 'env(safe-area-inset-top)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center' }}>
-          <span style={{ fontFamily: "'Manrope', sans-serif", fontSize: 20, fontWeight: 800, letterSpacing: '-0.02em', color: '#f6f6f7' }}>
+          <span style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontSize: 20, fontWeight: 800, letterSpacing: '-0.02em', color: '#f6f6f7' }}>
             Flow<span style={{ color: '#99f7ff' }}>stack</span>
           </span>
         </div>
@@ -69,7 +69,7 @@ export function Danke() {
         {/* Hero */}
         <div className="danke-hero" style={{ textAlign: 'center' }}>
           <h1 style={{
-            fontFamily: "'Manrope', sans-serif",
+            fontFamily: "'Inter Tight', 'Geist', sans-serif",
             fontSize: 'clamp(24px, 5vw, 44px)',
             fontWeight: 800,
             letterSpacing: '-0.02em',
@@ -79,7 +79,7 @@ export function Danke() {
           }}>
             Vielen Dank für deine Terminbuchung!
           </h1>
-          <p style={{ fontFamily: "'Manrope', sans-serif", fontSize: 17, fontWeight: 500, color: '#c4c5c7', maxWidth: 560, margin: '0 auto', lineHeight: 1.6 }}>
+          <p style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontSize: 17, fontWeight: 500, color: '#c4c5c7', maxWidth: 560, margin: '0 auto', lineHeight: 1.6 }}>
             Schau dir noch meine kurze Videobotschaft an dich an...
           </p>
         </div>
@@ -149,7 +149,7 @@ export function Danke() {
             backgroundColor: '#181a1b',
           }}>
             <div>
-              <p style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#99f7ff', fontFamily: "'Manrope', sans-serif", marginBottom: 20 }}>
+              <p style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#99f7ff', fontFamily: "'Inter Tight', 'Geist', sans-serif", marginBottom: 20 }}>
                 In unserem Gespräch lernst du:
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
@@ -160,7 +160,7 @@ export function Danke() {
                 ].map((text, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
                     <CheckCircle2 size={20} style={{ color: '#00f1fe', flexShrink: 0, marginTop: 2 }} />
-                    <span style={{ fontFamily: "'Manrope', sans-serif", fontSize: 16, fontWeight: 500, color: '#c4c5c7', lineHeight: 1.5 }}>{text}</span>
+                    <span style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontSize: 16, fontWeight: 500, color: '#c4c5c7', lineHeight: 1.5 }}>{text}</span>
                   </div>
                 ))}
               </div>
@@ -183,7 +183,7 @@ export function Danke() {
               gap: 10,
               color: '#99f7ff',
               fontWeight: 600,
-              fontFamily: "'Manrope', sans-serif",
+              fontFamily: "'Inter Tight', 'Geist', sans-serif",
               textDecoration: 'none',
               borderRadius: 12,
               border: '1px solid rgba(70,72,73,0.15)',
@@ -199,7 +199,7 @@ export function Danke() {
 
         {/* YouTube Section */}
         <div style={{ marginBottom: 40 }}>
-          <h2 style={{ fontFamily: "'Manrope', sans-serif", fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 700, color: '#f6f6f7', textAlign: 'center', marginBottom: 36 }}>
+          <h2 style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 700, color: '#f6f6f7', textAlign: 'center', marginBottom: 36 }}>
             Weitere Einblicke
           </h2>
           <div className="danke-yt-grid" style={{ display: 'grid', gap: 24 }}>
@@ -224,13 +224,13 @@ export function Danke() {
                 </div>
                 {/* Info */}
                 <div style={{ padding: '16px 20px' }}>
-                  <h3 style={{ fontFamily: "'Manrope', sans-serif", fontSize: 14, fontWeight: 700, color: '#f6f6f7', marginBottom: 12, lineHeight: 1.4 }}>
+                  <h3 style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontSize: 14, fontWeight: 700, color: '#f6f6f7', marginBottom: 12, lineHeight: 1.4 }}>
                     {vid.title}
                   </h3>
                   <button style={{
                     fontSize: 13,
                     fontWeight: 600,
-                    fontFamily: "'Manrope', sans-serif",
+                    fontFamily: "'Inter Tight', 'Geist', sans-serif",
                     color: '#99f7ff',
                     background: 'none',
                     border: 'none',
@@ -257,10 +257,10 @@ export function Danke() {
             <a href="/impressum" target="_blank" rel="noopener noreferrer" style={{ color: '#c4c5c7', textDecoration: 'none' }}>Impressum</a>
             <a href="/datenschutz" target="_blank" rel="noopener noreferrer" style={{ color: '#c4c5c7', textDecoration: 'none' }}>Datenschutz</a>
           </div>
-          <p style={{ fontSize: 11, color: '#464849', maxWidth: 600, lineHeight: 1.5, fontFamily: "'Manrope', sans-serif", fontWeight: 500 }}>
+          <p style={{ fontSize: 11, color: '#464849', maxWidth: 600, lineHeight: 1.5, fontFamily: "'Inter Tight', 'Geist', sans-serif", fontWeight: 500 }}>
             Diese Website ist nicht Teil der Facebook-Website oder von Facebook Inc. Diese Seite ist NICHT im Auftrag der FACEBOOK, Inc. entstanden. FACEBOOK ist eine Marke von FACEBOOK, Inc.
           </p>
-          <p style={{ fontSize: 11, color: '#464849', fontFamily: "'Manrope', sans-serif", fontWeight: 500 }}>© 2026 Flowstack. Alle Rechte vorbehalten.</p>
+          <p style={{ fontSize: 11, color: '#464849', fontFamily: "'Inter Tight', 'Geist', sans-serif", fontWeight: 500 }}>© 2026 Flowstack. Alle Rechte vorbehalten.</p>
         </div>
       </footer>
     </div>

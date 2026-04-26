@@ -16,7 +16,7 @@ const HOMEPAGE_THEME: FormTheme = {
   accentText: '#042f2e',
   border: '#464849',
   borderMuted: 'rgba(70,72,73,0.15)',
-  font: "'Inter', sans-serif",
+  font: "'Geist', 'Inter Tight', sans-serif",
 }
 
 const STEPS: FormStep[] = [

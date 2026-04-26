@@ -22,7 +22,7 @@ export function Training() {
   }, []);
 
   return (
-    <div className="vsl-training" style={{ fontFamily: "'Manrope', sans-serif", minHeight: '100vh', background: '#111415', backgroundImage: 'radial-gradient(ellipse at 20% 50%, rgba(0,241,254,0.03) 0%, transparent 60%)', color: '#f6f6f7', display: 'flex', flexDirection: 'column' }}>
+    <div className="vsl-training" style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", minHeight: '100dvh', background: '#111415', backgroundImage: 'radial-gradient(ellipse at 20% 50%, rgba(0,241,254,0.03) 0%, transparent 60%)', color: '#f6f6f7', display: 'flex', flexDirection: 'column' }}>
       <style>{`
         .vsl-training .training-header { padding: 14px 16px; }
         .vsl-training .training-header-label { display: none; }
@@ -43,10 +43,10 @@ export function Training() {
         }
       `}</style>
       {/* Header */}
-      <header className="training-header" style={{ background: 'rgba(42,44,46,0.6)', backdropFilter: 'blur(24px)', boxShadow: '0 1px 8px rgba(0,0,0,0.3)', position: 'sticky', top: 0, zIndex: 50 }}>
+      <header className="training-header" style={{ background: 'rgba(42,44,46,0.6)', backdropFilter: 'blur(24px)', boxShadow: '0 1px 8px rgba(0,0,0,0.3)', position: 'sticky', top: 0, zIndex: 50, paddingTop: 'env(safe-area-inset-top)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <span style={{ fontFamily: "'Manrope', sans-serif", fontSize: 20, fontWeight: 800, letterSpacing: '-0.02em', color: '#f6f6f7' }}>
+            <span style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontSize: 20, fontWeight: 800, letterSpacing: '-0.02em', color: '#f6f6f7' }}>
               Flow<span style={{ color: '#99f7ff' }}>stack</span>
             </span>
           </div>
@@ -60,7 +60,7 @@ export function Training() {
       <main className="training-main" style={{ flex: 1, maxWidth: 900, margin: '0 auto', width: '100%', boxSizing: 'border-box' }}>
         {/* Schritt 1 */}
         <p style={{ marginBottom: 10 }}>
-          <span className="training-step-text" style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800, letterSpacing: '-0.02em', color: '#99f7ff' }}>Schritt 1: </span>
+          <span className="training-step-text" style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontWeight: 800, letterSpacing: '-0.02em', color: '#99f7ff' }}>Schritt 1: </span>
           <span className="training-step-text" style={{ fontWeight: 500, color: '#f6f6f7' }}>Sieh dir jetzt die kostenlose 10-minütige Videopräsentation an</span>
         </p>
         <p style={{ fontSize: 14, color: '#c4c5c7', fontStyle: 'italic', marginBottom: 28, fontWeight: 500 }}>(Klicke dafür ins Bild)</p>
@@ -129,7 +129,7 @@ export function Training() {
 
         {/* Schritt 2 */}
         <p style={{ marginBottom: 20 }}>
-          <span className="training-step-text" style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800, letterSpacing: '-0.02em', color: '#99f7ff' }}>Schritt 2: </span>
+          <span className="training-step-text" style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontWeight: 800, letterSpacing: '-0.02em', color: '#99f7ff' }}>Schritt 2: </span>
           <span className="training-step-text" style={{ fontWeight: 500, color: '#f6f6f7' }}>Dein kostenloses Erstgespräch mit Claudio (ca. 15-20 Min.)</span>
         </p>
 
@@ -154,7 +154,7 @@ export function Training() {
             borderRadius: 4,
             fontSize: 16,
             fontWeight: 700,
-            fontFamily: "'Manrope', sans-serif",
+            fontFamily: "'Inter Tight', 'Geist', sans-serif",
             textDecoration: 'none',
             cursor: 'pointer',
             boxSizing: 'border-box',

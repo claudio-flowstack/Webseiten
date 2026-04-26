@@ -11,9 +11,9 @@ const Node = ({ x, y, w = 160, h = 44, label, sub, active, tier }: NodeProps) =>
       strokeWidth={active > 0.3 ? 1.5 : 1}
       style={{ filter: active > 0.5 ? 'drop-shadow(0 0 12px rgba(110,139,255,0.5))' : 'none', transition: 'all .3s' }}
     />
-    <text x={12} y={18} fontSize="11" fill="#626874" fontFamily="'JetBrains Mono', monospace" letterSpacing="0.05em">{tier || ''}</text>
+    <text x={12} y={18} fontSize="11" fill="#626874" fontFamily="'Geist Mono', ui-monospace, monospace" letterSpacing="0.05em">{tier || ''}</text>
     <text x={12} y={33} fontSize="13" fill={active > 0.3 ? '#E6E8EB' : '#9BA1AC'} fontFamily="Inter" fontWeight="500">{label}</text>
-    {sub && <text x={w - 12} y={33} fontSize="10.5" fill="#626874" fontFamily="'JetBrains Mono', monospace" textAnchor="end">{sub}</text>}
+    {sub && <text x={w - 12} y={33} fontSize="10.5" fill="#626874" fontFamily="'Geist Mono', ui-monospace, monospace" textAnchor="end">{sub}</text>}
   </g>
 )
 
@@ -126,7 +126,7 @@ function Hero() {
             </div>
           </div>
           <div className="hero-v3-founder">
-            <img className="hero-v3-founder-av" src="/claudio.jpg" alt="Claudio Di Franco" loading="lazy" decoding="async" />
+            <img className="hero-v3-founder-av" src="/claudio.jpg" alt="Claudio Di Franco" width={48} height={48} loading="lazy" decoding="async" />
             <div>
               <div className="hero-v3-founder-n">Claudio Di Franco</div>
               <div className="hero-v3-founder-r">Gründer · Flowstack System</div>
@@ -425,11 +425,11 @@ function Pipeline() {
 
           <g transform="translate(720, 272)">
             <circle r="10" fill="#0A0E1A" stroke={(t >= 0.32 && t <= 0.46) ? '#6E8BFF' : '#2A3246'} strokeWidth={1.5} />
-            <text fontSize="14" fontFamily="'JetBrains Mono', monospace" fill={(t >= 0.32 && t <= 0.46) ? '#A8BAFF' : '#626874'} textAnchor="middle" y="5">+</text>
+            <text fontSize="14" fontFamily="'Geist Mono', ui-monospace, monospace" fill={(t >= 0.32 && t <= 0.46) ? '#A8BAFF' : '#626874'} textAnchor="middle" y="5">+</text>
           </g>
           <g transform="translate(950, 272)">
             <circle r="10" fill="#0A0E1A" stroke={(t >= 0.56 && t <= 0.72) ? '#6E8BFF' : '#2A3246'} strokeWidth={1.5} />
-            <text fontSize="14" fontFamily="'JetBrains Mono', monospace" fill={(t >= 0.56 && t <= 0.72) ? '#A8BAFF' : '#626874'} textAnchor="middle" y="5">+</text>
+            <text fontSize="14" fontFamily="'Geist Mono', ui-monospace, monospace" fill={(t >= 0.56 && t <= 0.72) ? '#A8BAFF' : '#626874'} textAnchor="middle" y="5">+</text>
           </g>
 
           {p1 !== null && (() => { const { cx, cy } = particleAt(p1Pts, p1); return <circle cx={cx} cy={cy} r="5" fill="url(#particleGrad)" /> })()}
@@ -664,28 +664,40 @@ function ROICalc() {
 }
 
 function Cases() {
-  const items = [
+  const items: Array<{
+    av: string
+    img?: string
+    n: string
+    m: string
+    tag: string
+    headline: string
+    q: string
+    problem: string[]
+    umgesetzt: string[]
+    ziel: string[]
+    ba: { l: string; b: string; a: string }[]
+  }> = [
     {
-      av: 'LH', n: 'Lukas Hartmann', m: 'Gründer · Northpeak Performance · Köln',
-      tag: 'FULFILLMENT · AD-CREATIVE PRODUCTION',
-      headline: 'Ad-Creatives × 5 pro Woche — bei halbierten Produktionskosten.',
-      q: 'Wir liefern heute pro Kunde wöchentlich 30+ Creatives statt 6. Meta-Performance ist hoch wie nie, und das Design-Team atmet wieder.',
+      av: 'MJ', img: '/marc.webp', n: 'Marc Januschke', m: 'Co-Founder · ajXmarketing GmbH · MehrPremiumKunden.de',
+      tag: 'FULFILLMENT · SERVICE-DELIVERY AUTOMATION',
+      headline: 'Onboarding & Fulfillment auf Autopilot — doppelte Kundenzahl, gleiches Team.',
+      q: 'Unser komplettes Fulfillment läuft jetzt auf der Maschine. Onboarding, Kampagnen-Setup, Content pro Kunde — alles automatisiert in unserer Tonalität. Wir können Kunden annehmen, ohne Personal aufzubauen.',
       problem: [
-        'Creative-Fatigue killte Ad-Performance nach 10–14 Tagen',
-        'Design-Team produzierte 5–8 Assets pro Kunde/Woche — zu wenig',
-        'Jeder neue Kunde verschärfte den Creative-Bottleneck',
+        'Kunden-Onboarding zog sich über 2 Wochen — Fragebögen, Kickoff-Calls, manuelles Setup',
+        'Kampagnen- und Content-Produktion pro Kunde fraß das Team auf',
+        'Skalierung bedeutete neue Hires — und sofort weniger Marge',
       ],
       umgesetzt: [
-        'KI-Creative-Pipeline aus Briefing: Copy, Static, Video-Cuts in Kunden-CI',
-        'Winning-Ad-Parser zieht Top-Performer automatisch in Varianten',
-        'Review-Queue mit Human-in-the-Loop vor dem Ad-Upload',
+        'KI-gestütztes Onboarding: Kickoff-Transkript wird zu fertigem Strategie-Doc in Minuten',
+        'Automatisierte Kampagnen-Templates pro Kundenbranche, in Marcs Tone-of-Voice',
+        'Content- und Message-Generierung pro Kundenprofil, KI-geführt mit Human-im-Loop',
       ],
       ziel: [
-        'Creative-Output pro Kunde verfünffachen',
-        'CPA stabil halten trotz höherem Volume',
-        'Design-Team auf Konzept statt Copy-Paste',
+        'Onboarding-Zeit pro Neukunde drittel',
+        'Kundenzahl verdoppeln ohne Team-Vergrößerung',
+        'Marge hoch, Fixkosten flach',
       ],
-      ba: [{ l: 'Creatives/Kunde/W', b: '6', a: '32' }, { l: 'Produktionskosten', b: '100 %', a: '48 %' }, { l: 'CTR Ø', b: '1,4 %', a: '2,3 %' }],
+      ba: [{ l: 'Onboarding-Dauer', b: '14 T', a: '3 T' }, { l: 'Stunden/Kunde/M', b: '18h', a: '6h' }, { l: 'Parallele Kunden', b: '12', a: '26' }],
     },
     {
       av: 'KS', n: 'Kerem Süslü', m: 'Gründer · CubeFilm · Leverkusen',
@@ -699,7 +711,7 @@ function Cases() {
       ],
       umgesetzt: [
         'KI-Skript-Generator in CubeFilm-Tonalität, direkt aus Briefing',
-        'Automatisierte Storyboard-Vorschläge + Voiceover-Drafts per API',
+        'Automatisierte Storyboard-Vorschläge und Voiceover-Drafts per API',
         'Kunden-Feedback-Loop mit automatischer Revisions-Pipeline',
       ],
       ziel: [
@@ -709,35 +721,13 @@ function Cases() {
       ],
       ba: [{ l: 'Projekt-Durchlauf', b: '21 T', a: '4 T' }, { l: 'Skript-Erstellung', b: '2,5 T', a: '3 h' }, { l: 'Projekte/Monat', b: '6', a: '14' }],
     },
-    {
-      av: 'TB', n: 'Tobias Brenner', m: 'Gründer · Performance-Agentur · München',
-      tag: 'FULFILLMENT · REPORTING & ONBOARDING',
-      headline: 'Freitags kein Reporting mehr. Und trotzdem 2× Kunden pro Team.',
-      q: 'Der Hebel, den ich immer wollte: Wir wachsen, das Team nicht. Die Maschine liefert, nicht die Headcount-Zahl.',
-      problem: [
-        'Client-Reporting fraß jeden Freitag 18–22 Stunden Teamzeit',
-        'Onboarding eines neuen Kunden zog sich über 3 Wochen',
-        'Ad-Account-Pflege war Daily-Handarbeit — kein Raum für Strategie',
-      ],
-      umgesetzt: [
-        'Automatisiertes Weekly-Reporting aus Meta/Google Ads mit Kunden-CI',
-        'Onboarding-Kit generiert sich selbst nach Kickoff-Call (Briefing → Setup)',
-        'Ad-Management-Agent überwacht Budgets, Fatigue und schlägt Optimierungen vor',
-      ],
-      ziel: [
-        '2× Kundenzahl pro Mitarbeitenden',
-        'Reporting von 20h auf unter 1h pro Woche',
-        'Onboarding von 3 Wochen auf 3 Tage',
-      ],
-      ba: [{ l: 'Kunden/MA', b: '2,1', a: '4,8' }, { l: 'Reporting/W', b: '20h', a: '45 min' }, { l: 'Onboarding', b: '21 T', a: '3 T' }],
-    },
   ]
   return (
     <section className="section elev" id="faelle">
       <div className="wrap">
         <div className="section-head">
           <div className="eyebrow">· Fallstudien aus der Praxis</div>
-          <h2 className="section-h2">Drei Fulfillment-Transformationen. <strong>Ein System.</strong></h2>
+          <h2 className="section-h2">Zwei Fulfillment-Transformationen. <strong>Ein System.</strong></h2>
           <p className="lede section-lede">
             Echte Problem-Räume, konkrete Umsetzungen, messbare Ergebnisse. Keine Rosinen-Picks, keine hypothetischen Zahlen.
           </p>
@@ -749,7 +739,11 @@ function Cases() {
                 <div className="case-tag">{c.tag}</div>
                 <h3 className="case-headline">{c.headline}</h3>
                 <div className="case-ppl">
-                  <div className="case-av">{c.av}</div>
+                  {c.img ? (
+                    <img src={c.img} alt={c.n} className="case-av case-av-img" loading="lazy" decoding="async" />
+                  ) : (
+                    <div className="case-av">{c.av}</div>
+                  )}
                   <div>
                     <div className="case-n">{c.n}</div>
                     <div className="case-m">{c.m}</div>
@@ -758,7 +752,11 @@ function Cases() {
               </div>
               <div className="case-body">
                 <div className="case-img">
-                  <div className="case-img-tag">PORTRAIT · {c.n.split(' ')[0]}</div>
+                  {c.img ? (
+                    <img src={c.img} alt={`Portrait ${c.n}`} className="case-img-photo" loading="lazy" decoding="async" />
+                  ) : (
+                    <div className="case-img-tag">PORTRAIT · {c.n.split(' ')[0]}</div>
+                  )}
                 </div>
                 <div className="case-points">
                   <div className="case-point">
@@ -834,7 +832,7 @@ function Expert() {
     <section className="section elev" id="experte">
       <div className="wrap expert">
         <div className="expert-portrait">
-          <img src="/claudio.jpg" alt="Claudio Di Franco — Gründer Flowstack" className="expert-portrait-img" loading="lazy" decoding="async" />
+          <img src="/claudio.jpg" alt="Claudio Di Franco — Gründer Flowstack" className="expert-portrait-img" width={800} height={649} loading="lazy" decoding="async" />
           <div className="expert-portrait-tag">GRÜNDER · FLOWSTACK</div>
         </div>
         <div className="expert-body">

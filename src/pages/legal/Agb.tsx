@@ -26,11 +26,11 @@ export function Agb() {
   return (
     <div
       style={{
-        fontFamily: "'Inter', sans-serif",
-        minHeight: '100vh',
+        fontFamily: "'Geist', 'Inter Tight', sans-serif",
+        minHeight: '100dvh',
         background: '#111415',
         color: '#f6f6f7',
-        padding: '48px 20px',
+        padding: 'max(48px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) max(48px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left))',
         maxWidth: 820,
         margin: '0 auto',
       }}

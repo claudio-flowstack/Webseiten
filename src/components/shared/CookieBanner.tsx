@@ -36,8 +36,8 @@ const FLOWSTACK_THEME: BannerTheme = {
   panelBg: 'rgba(10,10,14,0.95)',
   panelBorder: 'rgba(31,41,55,0.5)',
   textHeading: '#ffffff',
-  textBody: '#9ca3af',
-  textMuted: '#6b7280',
+  textBody: '#d1d5db',
+  textMuted: '#9ca3af',
   buttonSecondaryBg: 'rgba(17,24,39,0.8)',
   buttonSecondaryBorder: 'rgba(55,65,81,0.5)',
 };
@@ -52,8 +52,8 @@ const NOVACODE_THEME: BannerTheme = {
   panelBg: 'rgba(12,12,13,0.96)',
   panelBorder: 'rgba(255,255,255,0.1)',
   textHeading: '#e6e4df',
-  textBody: 'rgba(230,228,223,0.7)',
-  textMuted: 'rgba(230,228,223,0.45)',
+  textBody: 'rgba(230,228,223,0.85)',
+  textMuted: 'rgba(230,228,223,0.7)',
   buttonSecondaryBg: 'rgba(20,20,22,0.9)',
   buttonSecondaryBorder: 'rgba(255,255,255,0.12)',
   fontFamily: '"Geist", "Inter Tight", -apple-system, sans-serif',
@@ -254,7 +254,10 @@ const CookieBanner = () => {
     <>
       {/* Cookie Banner */}
       {!showSettings && (
-        <div className="fixed bottom-4 left-4 right-4 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 sm:w-full sm:max-w-2xl z-50">
+        <div
+          className="fixed left-4 right-4 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 sm:w-full sm:max-w-2xl z-50"
+          style={{ bottom: 'max(1rem, env(safe-area-inset-bottom))' }}
+        >
           <div
             className="backdrop-blur-xl border shadow-2xl rounded-2xl p-6 flex flex-col gap-4"
             style={panelStyle}
@@ -266,9 +269,9 @@ const CookieBanner = () => {
               >
                 <Cookie className="w-5 h-5" style={{ color: theme.accent }} />
               </div>
-              <h3 className="font-semibold text-lg" style={{ color: theme.textHeading }}>
+              <h2 className="font-semibold text-lg" style={{ color: theme.textHeading }}>
                 Cookie-Einstellungen
-              </h3>
+              </h2>
             </div>
 
             <p className="text-sm leading-relaxed" style={{ color: theme.textBody }}>
@@ -312,9 +315,9 @@ const CookieBanner = () => {
 
       {/* Settings Modal */}
       {showSettings && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 py-safe">
           <div
-            className="border rounded-2xl shadow-2xl max-w-lg w-full p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto"
+            className="border rounded-2xl shadow-2xl max-w-lg w-full p-6 sm:p-8 relative max-h-[90dvh] overflow-y-auto"
             style={panelStyle}
           >
             <div className="flex items-center justify-between mb-6">
@@ -325,9 +328,9 @@ const CookieBanner = () => {
                 >
                   <Cookie className="w-5 h-5" style={{ color: theme.accent }} />
                 </div>
-                <h3 className="text-xl font-semibold" style={{ color: theme.textHeading }}>
+                <h2 className="text-xl font-semibold" style={{ color: theme.textHeading }}>
                   Cookie-Einstellungen
-                </h3>
+                </h2>
               </div>
               <button
                 onClick={() => setShowSettings(false)}
@@ -352,7 +355,7 @@ const CookieBanner = () => {
                   <div className="flex items-center gap-3">
                     <Shield className="w-5 h-5" style={{ color: theme.accent }} />
                     <div>
-                      <h4 className="font-medium" style={{ color: theme.textHeading }}>Notwendig</h4>
+                      <h3 className="font-medium" style={{ color: theme.textHeading }}>Notwendig</h3>
                       <p className="text-xs" style={{ color: theme.textMuted }}>Erforderlich für den Betrieb der Website</p>
                     </div>
                   </div>
@@ -372,7 +375,7 @@ const CookieBanner = () => {
                   <div className="flex items-center gap-3">
                     <BarChart3 className="w-5 h-5" style={{ color: theme.textMuted }} />
                     <div>
-                      <h4 className="font-medium" style={{ color: theme.textHeading }}>Analytics</h4>
+                      <h3 className="font-medium" style={{ color: theme.textHeading }}>Analytics</h3>
                       <p className="text-xs" style={{ color: theme.textMuted }}>Google Analytics zur Verbesserung der Website</p>
                     </div>
                   </div>
@@ -395,7 +398,7 @@ const CookieBanner = () => {
                   <div className="flex items-center gap-3">
                     <Megaphone className="w-5 h-5" style={{ color: theme.textMuted }} />
                     <div>
-                      <h4 className="font-medium" style={{ color: theme.textHeading }}>Marketing</h4>
+                      <h3 className="font-medium" style={{ color: theme.textHeading }}>Marketing</h3>
                       <p className="text-xs" style={{ color: theme.textMuted }}>Google Ads & Facebook Pixel für personalisierte Werbung</p>
                     </div>
                   </div>

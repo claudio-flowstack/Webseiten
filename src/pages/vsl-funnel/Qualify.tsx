@@ -13,7 +13,7 @@ const VSL_THEME: FormTheme = {
   accentText: '#003538',
   border: '#464849',
   borderMuted: 'rgba(70,72,73,0.15)',
-  font: "'Manrope', sans-serif",
+  font: "'Inter Tight', 'Geist', sans-serif",
 }
 
 const STEPS: FormStep[] = [

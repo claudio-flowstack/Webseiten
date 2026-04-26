@@ -29,8 +29,8 @@ export function Datenschutz() {
   };
 
   const sectionStyle = { marginBottom: 56 };
-  const h2Style = { fontFamily: "'Manrope', sans-serif" as const, fontWeight: 800 as const, fontSize: 22, color: '#f6f6f7', marginBottom: 20, marginTop: 0, letterSpacing: '-0.02em' };
-  const h3Style = { fontFamily: "'Manrope', sans-serif" as const, fontWeight: 800 as const, fontSize: 17, color: '#f6f6f7', marginBottom: 10, marginTop: 24, letterSpacing: '-0.01em' };
+  const h2Style = { fontFamily: "'Inter Tight', 'Geist', sans-serif" as const, fontWeight: 800 as const, fontSize: 22, color: '#f6f6f7', marginBottom: 20, marginTop: 0, letterSpacing: '-0.02em' };
+  const h3Style = { fontFamily: "'Inter Tight', 'Geist', sans-serif" as const, fontWeight: 800 as const, fontSize: 17, color: '#f6f6f7', marginBottom: 10, marginTop: 24, letterSpacing: '-0.01em' };
   const pStyle = { color: '#c4c5c7', fontWeight: 500 as const, lineHeight: 1.8, fontSize: 15, margin: '0 0 12px 0' };
   const linkStyle = { color: '#99f7ff', textDecoration: 'none' as const };
   const strongStyle = { color: '#f6f6f7', fontWeight: 700 as const };
@@ -41,7 +41,7 @@ export function Datenschutz() {
   );
 
   return (
-    <div className="legal-datenschutz" style={{ fontFamily: "'Manrope', sans-serif", minHeight: '100vh', background: '#111415', backgroundImage: 'radial-gradient(ellipse at 20% 50%, rgba(0,241,254,0.03) 0%, transparent 60%)', color: '#f6f6f7', display: 'flex', flexDirection: 'column' }}>
+    <div className="legal-datenschutz" style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", minHeight: '100dvh', background: '#111415', backgroundImage: 'radial-gradient(ellipse at 20% 50%, rgba(0,241,254,0.03) 0%, transparent 60%)', color: '#f6f6f7', display: 'flex', flexDirection: 'column' }}>
       <style>{`
         .legal-datenschutz .legal-header { padding: 14px 16px; }
         .legal-datenschutz .legal-main { padding: 48px 16px 64px; }
@@ -57,10 +57,10 @@ export function Datenschutz() {
       `}</style>
 
       {/* Header */}
-      <header className="legal-header" style={{ background: 'rgba(42,44,46,0.6)', backdropFilter: 'blur(24px)', boxShadow: '0 1px 8px rgba(0,0,0,0.3)', position: 'sticky', top: 0, zIndex: 50, paddingBottom: 24 }}>
+      <header className="legal-header" style={{ background: 'rgba(42,44,46,0.6)', backdropFilter: 'blur(24px)', boxShadow: '0 1px 8px rgba(0,0,0,0.3)', position: 'sticky', top: 0, zIndex: 50, paddingTop: 'env(safe-area-inset-top)', paddingBottom: 24 }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <span style={{ fontFamily: "'Manrope', sans-serif", fontSize: 20, fontWeight: 800, letterSpacing: '-0.02em', color: '#f6f6f7' }}>
+            <span style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontSize: 20, fontWeight: 800, letterSpacing: '-0.02em', color: '#f6f6f7' }}>
               Flow<span style={{ color: '#99f7ff' }}>stack</span>
             </span>
           </div>
@@ -69,7 +69,7 @@ export function Datenschutz() {
 
       {/* Main */}
       <main className="legal-main" style={{ flex: 1, maxWidth: 720, margin: '0 auto', width: '100%', boxSizing: 'border-box' }}>
-        <h1 className="legal-title" style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.15, color: '#f6f6f7', marginTop: 0, marginBottom: 56 }}>
+        <h1 className="legal-title" style={{ fontFamily: "'Inter Tight', 'Geist', sans-serif", fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.15, color: '#f6f6f7', marginTop: 0, marginBottom: 56 }}>
           Datenschutzerklärung
         </h1>
 
@@ -468,7 +468,7 @@ export function Datenschutz() {
           <a
             className="legal-back-btn"
             href="/kostenloses-videotraining"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#99f7ff', textDecoration: 'none', fontSize: 15, fontWeight: 700, fontFamily: "'Manrope', sans-serif", transition: 'background 0.2s, border-color 0.2s', border: '1px solid rgba(70,72,73,0.2)', padding: '12px 24px', borderRadius: 4 }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#99f7ff', textDecoration: 'none', fontSize: 15, fontWeight: 700, fontFamily: "'Inter Tight', 'Geist', sans-serif", transition: 'background 0.2s, border-color 0.2s', border: '1px solid rgba(70,72,73,0.2)', padding: '12px 24px', borderRadius: 4 }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(153,247,255,0.05)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(153,247,255,0.2)'; }}
             onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(70,72,73,0.2)'; }}
           >
@@ -485,10 +485,10 @@ export function Datenschutz() {
             <a href="/impressum" target="_blank" rel="noopener noreferrer" style={{ color: '#c4c5c7', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => { (e.target as HTMLAnchorElement).style.color = '#99f7ff'; }} onMouseLeave={(e) => { (e.target as HTMLAnchorElement).style.color = '#c4c5c7'; }}>Impressum</a>
             <a href="/datenschutz" target="_blank" rel="noopener noreferrer" style={{ color: '#c4c5c7', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => { (e.target as HTMLAnchorElement).style.color = '#99f7ff'; }} onMouseLeave={(e) => { (e.target as HTMLAnchorElement).style.color = '#c4c5c7'; }}>Datenschutz</a>
           </div>
-          <p style={{ fontSize: 11, color: '#464849', maxWidth: 600, lineHeight: 1.5, fontWeight: 500 }}>
+          <p style={{ fontSize: 11, color: '#9ca3af', maxWidth: 600, lineHeight: 1.5, fontWeight: 500 }}>
             Diese Website ist nicht Teil der Facebook-Website oder von Facebook Inc. Diese Seite ist NICHT im Auftrag der FACEBOOK, Inc. entstanden. FACEBOOK ist eine Marke von FACEBOOK, Inc.
           </p>
-          <p style={{ fontSize: 11, color: '#464849', fontWeight: 500 }}>&copy; 2026 Flowstack. Alle Rechte vorbehalten.</p>
+          <p style={{ fontSize: 11, color: '#9ca3af', fontWeight: 500 }}>&copy; 2026 Flowstack. Alle Rechte vorbehalten.</p>
         </div>
       </footer>
     </div>

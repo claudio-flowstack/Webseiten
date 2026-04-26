@@ -5,7 +5,8 @@
 
 /* ── Design Tokens → Tailwind Utilities ── */
 @theme inline {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --breakpoint-xs: 23.4375rem;
+  --font-sans: "Geist", "Inter Tight", ui-sans-serif, system-ui, sans-serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -129,10 +130,92 @@
 
 /* ── Base styles ── */
 
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-family: "Geist", "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  overflow-x: clip;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* iOS auto-zoom on focus prevention: all inputs >= 16px */
+input, textarea, select {
+  font-size: max(16px, 1rem);
+}
+
+/* Respect touch action for better scroll/zoom ergonomics */
+button, a, [role="button"] {
+  touch-action: manipulation;
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Responsive viewport & safe-area utilities ── */
+@utility h-dvh {
+  height: 100vh;
+  height: 100dvh;
+}
+@utility min-h-dvh {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+@utility max-h-dvh {
+  max-height: 100vh;
+  max-height: 100dvh;
+}
+@utility h-svh {
+  height: 100vh;
+  height: 100svh;
+}
+@utility min-h-svh {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+@utility pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+@utility pl-safe {
+  padding-left: env(safe-area-inset-left);
+}
+@utility pr-safe {
+  padding-right: env(safe-area-inset-right);
+}
+@utility px-safe {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+@utility py-safe {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+@utility inset-safe {
+  top: env(safe-area-inset-top);
+  right: env(safe-area-inset-right);
+  bottom: env(safe-area-inset-bottom);
+  left: env(safe-area-inset-left);
+}
+@utility touch-target {
+  min-width: 44px;
+  min-height: 44px;
 }
 
 /* ── Scrollbar ── */
