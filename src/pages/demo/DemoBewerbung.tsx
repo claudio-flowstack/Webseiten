@@ -103,6 +103,7 @@ export function DemoBewerbung() {
     <DemoTerminalShell>
       <TermNav />
 
+      <main>
       <div style={{ padding: '20px 72px', borderBottom: `1px solid ${terminal.border}`, fontFamily: terminal.mono, fontSize: 12, color: terminal.dim }}>
         <Link to="/demo" style={{ color: terminal.dim, textDecoration: 'none' }}>
           ← Zurück zu careers.novacode.de
@@ -389,6 +390,7 @@ export function DemoBewerbung() {
           </div>
         </div>
       </div>
+      </main>
 
       <TermFooter />
     </DemoTerminalShell>

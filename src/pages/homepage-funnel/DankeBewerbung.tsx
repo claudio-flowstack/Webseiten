@@ -69,6 +69,7 @@ export function DankeBewerbung() {
         </div>
       </nav>
 
+      <main>
       <section className="thanks-hero">
         <div className="wrap">
           <div className="thanks-hero-check">
@@ -205,6 +206,7 @@ export function DankeBewerbung() {
           </div>
         </div>
       </section>
+      </main>
 
       <footer className="wrap footer">
         <div className="footer-inner">

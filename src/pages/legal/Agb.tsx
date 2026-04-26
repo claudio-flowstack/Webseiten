@@ -24,7 +24,7 @@ export function Agb() {
   }, [])
 
   return (
-    <div
+    <main
       style={{
         fontFamily: "'Geist', 'Inter Tight', sans-serif",
         minHeight: '100dvh',
@@ -129,6 +129,6 @@ export function Agb() {
           Stand: April 2026 · Flowstack System GmbH, München
         </p>
       </div>
-    </div>
+    </main>
   )
 }

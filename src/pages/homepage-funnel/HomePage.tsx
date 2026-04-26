@@ -882,33 +882,35 @@ export function HomePage() {
     <div className="marketing-root">
       <AvailBanner />
       <Nav />
-      <Hero />
-      <TrustStrip />
-      <Marquee />
-      <Empathy />
-      <Mirror />
-      <Preview />
-      <Method />
-      <AnchorCTA
-        title={<>Bereit, das <strong>System für deine Agentur</strong> aufzusetzen?</>}
-        sub="12-Schritte-Bewerbung. Dauert 3 Minuten. Rückruf in 24h bei Qualifikation."
-        cta="Jetzt bewerben"
-      />
-      <Outcomes />
-      <Demark />
-      <Services />
-      <Process />
-      <AnchorCTA
-        title={<>Noch unsicher? <strong>Lass uns 30 Minuten sprechen.</strong></>}
-        sub="Kostenlos, unverbindlich, ohne Sales-Druck. Entweder es passt, oder wir sagen dir ehrlich wo du falsch bist."
-        cta="Kostenloses Gespräch sichern"
-      />
-      <Calculator />
-      <Cases />
-      <Team />
-      <FinalROI />
-      <FAQ />
-      <FinalCTA />
+      <main>
+        <Hero />
+        <TrustStrip />
+        <Marquee />
+        <Empathy />
+        <Mirror />
+        <Preview />
+        <Method />
+        <AnchorCTA
+          title={<>Bereit, das <strong>System für deine Agentur</strong> aufzusetzen?</>}
+          sub="12-Schritte-Bewerbung. Dauert 3 Minuten. Rückruf in 24h bei Qualifikation."
+          cta="Jetzt bewerben"
+        />
+        <Outcomes />
+        <Demark />
+        <Services />
+        <Process />
+        <AnchorCTA
+          title={<>Noch unsicher? <strong>Lass uns 30 Minuten sprechen.</strong></>}
+          sub="Kostenlos, unverbindlich, ohne Sales-Druck. Entweder es passt, oder wir sagen dir ehrlich wo du falsch bist."
+          cta="Kostenloses Gespräch sichern"
+        />
+        <Calculator />
+        <Cases />
+        <Team />
+        <FinalROI />
+        <FAQ />
+        <FinalCTA />
+      </main>
       <Footer />
     </div>
   )

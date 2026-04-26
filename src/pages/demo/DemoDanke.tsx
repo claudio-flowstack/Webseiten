@@ -41,6 +41,7 @@ export function DemoDanke() {
     <DemoTerminalShell>
       <TermNav />
 
+      <main>
       <div style={{ padding: '96px 72px 80px', display: 'grid', gridTemplateColumns: '1.3fr 1fr', gap: 72, alignItems: 'start' }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 32 }}>
@@ -155,6 +156,7 @@ export function DemoDanke() {
           </div>
         </div>
       </div>
+      </main>
 
       <TermFooter />
     </DemoTerminalShell>

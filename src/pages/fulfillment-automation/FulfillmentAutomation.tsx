@@ -1098,22 +1098,24 @@ export function FulfillmentAutomation() {
     <div className="marketing-root marketing-fulfillment">
       <AvailBanner />
       <Nav />
-      <Hero />
-      <TrustRow />
-      <Problems />
-      <Audience />
-      <Method />
-      <Benefits />
-      <ROICalc />
-      <Cases />
-      <Process />
-      <Expert />
-      <MidCTA />
-      <TeamSection />
-      <SocialLocation />
-      <PressFeatures />
-      <FAQ />
-      <FinalCTA />
+      <main>
+        <Hero />
+        <TrustRow />
+        <Problems />
+        <Audience />
+        <Method />
+        <Benefits />
+        <ROICalc />
+        <Cases />
+        <Process />
+        <Expert />
+        <MidCTA />
+        <TeamSection />
+        <SocialLocation />
+        <PressFeatures />
+        <FAQ />
+        <FinalCTA />
+      </main>
       <Footer />
       <StickyMobileCTA />
     </div>

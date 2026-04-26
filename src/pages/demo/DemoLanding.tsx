@@ -91,13 +91,15 @@ export function DemoLanding() {
   return (
     <DemoTerminalShell>
       <TermNav />
-      <Hero />
-      <ImageStrip />
-      <Roles />
-      <Benefits />
-      <Process />
-      <Voices />
-      <FinalCta />
+      <main>
+        <Hero />
+        <ImageStrip />
+        <Roles />
+        <Benefits />
+        <Process />
+        <Voices />
+        <FinalCta />
+      </main>
       <TermFooter />
     </DemoTerminalShell>
   )

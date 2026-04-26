@@ -74,6 +74,7 @@ export function DemoImpressum() {
     <DemoTerminalShell>
       <TermNav />
 
+      <main>
       <div style={{ maxWidth: 960, margin: '0 auto', padding: '80px 72px 96px' }}>
         <div style={{ fontFamily: terminal.mono, fontSize: 12, color: terminal.accent, letterSpacing: 1.5, textTransform: 'uppercase', marginBottom: 18 }}>
           /legal/impressum
@@ -143,6 +144,7 @@ export function DemoImpressum() {
           Stand: April 2026
         </div>
       </div>
+      </main>
 
       <TermFooter />
     </DemoTerminalShell>

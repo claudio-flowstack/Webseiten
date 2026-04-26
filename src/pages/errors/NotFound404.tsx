@@ -10,7 +10,7 @@ export function NotFound404() {
   })
 
   return (
-    <div
+    <main
       style={{
         minHeight: '100dvh',
         background: '#0a0a0e',
@@ -76,6 +76,6 @@ export function NotFound404() {
           </Link>
         </div>
       </div>
-    </div>
+    </main>
   )
 }

@@ -86,6 +86,7 @@ export function DemoDatenschutz() {
     <DemoTerminalShell>
       <TermNav />
 
+      <main>
       <div style={{ maxWidth: 960, margin: '0 auto', padding: '80px 72px 96px' }}>
         <div style={{ fontFamily: terminal.mono, fontSize: 12, color: terminal.accent, letterSpacing: 1.5, textTransform: 'uppercase', marginBottom: 18 }}>
           /legal/datenschutz
@@ -135,6 +136,7 @@ export function DemoDatenschutz() {
           Stand: April 2026 · Diese Seite ist Teil einer Demo und nicht rechtsverbindlich.
         </div>
       </div>
+      </main>
 
       <TermFooter />
     </DemoTerminalShell>
